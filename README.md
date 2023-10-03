@@ -9,7 +9,8 @@ Welcome to the Personal Budgeting Database repository! This project is a semeste
 Links to previous pitch video:
 <https://vcu.zoom.us/rec/play/GxSkkZsEGwNLU7AFEyaAWhPU_WYmwJ6n7Eh1kAicT4dfu5m8V_Cf0lSX-bDawGCafBQjNSuxxzPKjj0p.fUgTdutCMd0jLivy?canPlayFromShare=true&from=share_recording_detail&continueMode=true&componentName=rec-play&originRequestUrl=https%3A%2F%2Fvcu.zoom.us%2Frec%2Fshare%2F-nhA8wBIFG11yaFMcAL-boD81VZWKOAI2_CDKKjJjZZTUlzsKFVpvNFLB5OnkI53.XNolZw6VAD-LR4Go>
 
-ALERT: DO NOT USE THE *./docs* FOLDER unless you're comfy with what you're doing!
+Alert: 
+DO NOT USE THE *./docs* FOLDER unless you're comfy with what you're doing!
 - Folder name is reserved for use by Quarto. Quarto will create and manage a public, static website in this folder once we set it up in a later assignment.
 - You should not store source files in the *./docs* folder unless you explicitly want them shared publically.
 
