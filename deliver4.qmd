@@ -147,7 +147,43 @@ Having the User - Budget relation be a *1:many* relationship means that if a gro
 ## 7) Relational schemas
 Listing of relations, their attributes, types, domain, and constraints, identification of the primary key and foreign keys and other constraints.
 
-Insert schema here
+* User Relation:
+
+| Attribute   | Type   | Domain      | Constraints                 | Primary key | Foreign key |
+|-------------|--------|-------------|-----------------------------|-------------|-------------|
+| userID      | String | All strings | Must not be null            | yes         | no          |
+| budget      | String | All strings | Must not have duplicate IDs | no          | yes         |
+| name        | String | All strings | Must not be null            | no          | no          |
+| transaction | String | All Strings | Must not have duplicate IDs | no          | yes         |
+
+* Budget Relation:
+
+| Attribute  | Type   | Domain                                        | Constraints                 | Primary key | Foreign key |
+|------------|--------|-----------------------------------------------|-----------------------------|-------------|-------------|
+| budgetID   | String | All strings                                   | must not be null            | yes         | no          |
+| Price/Gain | Double | All real numbers with no more than 2 decimals | none                        | no          | no          |
+| Source     | String | One of the following: Entertainment, Transportation, Necessities, Medical, Job, Gifts, Side Hustle, or Other | must not be null | no | no |
+| Actual     | String | All strings                                   | must not have duplicate IDs | no          | yes         |
+| TimePeriod | String | A string consisting of either a range of dates: “mm/dd/yy - mm/dd/yy,” or a discrete amount of time ie “1 month” | none | no | no |
+
+* Actual Relation:
+
+| Attribute   | Type   | Domain                                        | Constraints                 | Primary key | Foreign key |
+|-------------|--------|-----------------------------------------------|-----------------------------|-------------|-------------|
+| actualID    | String | All strings                                   | must not be null            | yes         | no          |
+| transaction | String | All strings                                   | must not have duplicate Ids | no          | yes         |
+| budget      | String | All strings                                   | must not have duplicate Ids | no          | yes         |
+| TimePeriod  | String | A string consisting of either a range of dates: “mm/dd/yy - mm/dd/yy,” or a discrete amount of time ie “1 month” | none | no | no |
+
+* Transaction Relation:
+
+| Attribute  | Type   | Domain                                        | Constraints                 | Primary key | Foreign key |
+|------------|--------|-----------------------------------------------|-----------------------------|-------------|-------------|
+| transID    | String | All strings                                   | must not be null            | yes         | no          |
+| Price/Gain | Double | All real numbers with no more than 2 decimals | none                        | no          | no          |
+| Source     | String | One of the following: Entertainment, Transportation, Necessities, Medical, Job, Gifts, Side Hustle, or Other | must not be null | no | no |
+| Actual     | String | All strings                                   | must not have duplicate IDs | no          | yes         |
+| Date       | String | A string consisting of a discrete date: “mm/dd/yy” | none                   | no           | no         |
 
 ## 8) Functional Dependencies and Normalization
 

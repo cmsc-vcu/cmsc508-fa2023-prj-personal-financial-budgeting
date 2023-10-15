@@ -3645,7 +3645,250 @@ Transaction–creates
 <section id="relational-schemas" class="level2">
 <h2 class="anchored" data-anchor-id="relational-schemas">7) Relational schemas</h2>
 <p>Listing of relations, their attributes, types, domain, and constraints, identification of the primary key and foreign keys and other constraints.</p>
-<p>Insert schema here</p>
+<ul>
+<li>User Relation:</li>
+</ul>
+<table class="table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 8%">
+<col style="width: 14%">
+<col style="width: 32%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Attribute</th>
+<th>Type</th>
+<th>Domain</th>
+<th>Constraints</th>
+<th>Primary key</th>
+<th>Foreign key</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>userID</td>
+<td>String</td>
+<td>All strings</td>
+<td>Must not be null</td>
+<td>yes</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>budget</td>
+<td>String</td>
+<td>All strings</td>
+<td>Must not have duplicate IDs</td>
+<td>no</td>
+<td>yes</td>
+</tr>
+<tr class="odd">
+<td>name</td>
+<td>String</td>
+<td>All strings</td>
+<td>Must not be null</td>
+<td>no</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>transaction</td>
+<td>String</td>
+<td>All Strings</td>
+<td>Must not have duplicate IDs</td>
+<td>no</td>
+<td>yes</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Budget Relation:</li>
+</ul>
+<table class="table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 6%">
+<col style="width: 38%">
+<col style="width: 23%">
+<col style="width: 10%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Attribute</th>
+<th>Type</th>
+<th>Domain</th>
+<th>Constraints</th>
+<th>Primary key</th>
+<th>Foreign key</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>budgetID</td>
+<td>String</td>
+<td>All strings</td>
+<td>must not be null</td>
+<td>yes</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>Price/Gain</td>
+<td>Double</td>
+<td>All real numbers with no more than 2 decimals</td>
+<td>none</td>
+<td>no</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>Source</td>
+<td>String</td>
+<td>One of the following: Entertainment, Transportation, Necessities, Medical, Job, Gifts, Side Hustle, or Other</td>
+<td>must not be null</td>
+<td>no</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>Actual</td>
+<td>String</td>
+<td>All strings</td>
+<td>must not have duplicate IDs</td>
+<td>no</td>
+<td>yes</td>
+</tr>
+<tr class="odd">
+<td>TimePeriod</td>
+<td>String</td>
+<td>A string consisting of either a range of dates: “mm/dd/yy - mm/dd/yy,” or a discrete amount of time ie “1 month”</td>
+<td>none</td>
+<td>no</td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Actual Relation:</li>
+</ul>
+<table class="table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 6%">
+<col style="width: 38%">
+<col style="width: 23%">
+<col style="width: 10%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Attribute</th>
+<th>Type</th>
+<th>Domain</th>
+<th>Constraints</th>
+<th>Primary key</th>
+<th>Foreign key</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>actualID</td>
+<td>String</td>
+<td>All strings</td>
+<td>must not be null</td>
+<td>yes</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>transaction</td>
+<td>String</td>
+<td>All strings</td>
+<td>must not have duplicate Ids</td>
+<td>no</td>
+<td>yes</td>
+</tr>
+<tr class="odd">
+<td>budget</td>
+<td>String</td>
+<td>All strings</td>
+<td>must not have duplicate Ids</td>
+<td>no</td>
+<td>yes</td>
+</tr>
+<tr class="even">
+<td>TimePeriod</td>
+<td>String</td>
+<td>A string consisting of either a range of dates: “mm/dd/yy - mm/dd/yy,” or a discrete amount of time ie “1 month”</td>
+<td>none</td>
+<td>no</td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Transaction Relation:</li>
+</ul>
+<table class="table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 6%">
+<col style="width: 38%">
+<col style="width: 23%">
+<col style="width: 10%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Attribute</th>
+<th>Type</th>
+<th>Domain</th>
+<th>Constraints</th>
+<th>Primary key</th>
+<th>Foreign key</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>transID</td>
+<td>String</td>
+<td>All strings</td>
+<td>must not be null</td>
+<td>yes</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>Price/Gain</td>
+<td>Double</td>
+<td>All real numbers with no more than 2 decimals</td>
+<td>none</td>
+<td>no</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>Source</td>
+<td>String</td>
+<td>One of the following: Entertainment, Transportation, Necessities, Medical, Job, Gifts, Side Hustle, or Other</td>
+<td>must not be null</td>
+<td>no</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>Actual</td>
+<td>String</td>
+<td>All strings</td>
+<td>must not have duplicate IDs</td>
+<td>no</td>
+<td>yes</td>
+</tr>
+<tr class="odd">
+<td>Date</td>
+<td>String</td>
+<td>A string consisting of a discrete date: “mm/dd/yy”</td>
+<td>none</td>
+<td>no</td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="functional-dependencies-and-normalization" class="level2">
 <h2 class="anchored" data-anchor-id="functional-dependencies-and-normalization">8) Functional Dependencies and Normalization</h2>
