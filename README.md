@@ -7,7 +7,7 @@ Welcome to the Personal Budgeting Database repository! This project is a semeste
 - Corbin Allen Nash
 
 Links to previous pitch video:
-<https://vcu.zoom.us/rec/play/GxSkkZsEGwNLU7AFEyaAWhPU_WYmwJ6n7Eh1kAicT4dfu5m8V_Cf0lSX-bDawGCafBQjNSuxxzPKjj0p.fUgTdutCMd0jLivy?canPlayFromShare=true&from=share_recording_detail&continueMode=true&componentName=rec-play&originRequestUrl=https%3A%2F%2Fvcu.zoom.us%2Frec%2Fshare%2F-nhA8wBIFG11yaFMcAL-boD81VZWKOAI2_CDKKjJjZZTUlzsKFVpvNFLB5OnkI53.XNolZw6VAD-LR4Go>
+<https://vcu.zoom.us/rec/share/-nhA8wBIFG11yaFMcAL-boD81VZWKOAI2_CDKKjJjZZTUlzsKFVpvNFLB5OnkI53.XNolZw6VAD-LR4Go>
 
 Alert: 
 DO NOT USE THE *./docs* FOLDER unless you're comfy with what you're doing!
