@@ -7,6 +7,7 @@ Welcome to the Personal Budgeting Database repository! This project is a semeste
 - Corbin Allen Nash
 
 Links to previous pitch video:
+
 <https://vcu.zoom.us/rec/share/-nhA8wBIFG11yaFMcAL-boD81VZWKOAI2_CDKKjJjZZTUlzsKFVpvNFLB5OnkI53.XNolZw6VAD-LR4Go>
 
 Alert: 
