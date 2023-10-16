@@ -3634,6 +3634,48 @@ Transaction–creates
 </div>
 </div>
 </div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<div>
+<pre class="mermaid mermaid-js">erDiagram
+USER ||--|| BUDGET: MANAGES
+USER ||--o{ TRANSACTION: CREATES
+TRANSACTION }|--|| ACTUALS: ADMINISTERS
+ACTUALS ||--|| BUDGET: COMPARES_TO
+
+
+USER {
+string userID
+string budget
+string name
+string transaction
+}
+BUDGET {
+string budgetID
+double pricegain
+string source
+string actual
+string timeperiod
+}
+ACTUALS {
+string actualID
+string transaction
+string budget
+string timeperiod
+}
+TRANSACTION {
+string transID
+double pricegain
+string source
+string actual
+string date
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
 <section id="relationship-of-user-to-budget-1many" class="level4">
 <h4 class="anchored" data-anchor-id="relationship-of-user-to-budget-1many">Relationship of User to Budget: 1:many</h4>
 <p>Having the User - Budget relation be a <em>1:many</em> relationship means that if a group were to use this database to manage expenses, they would need to be under a shared user.</p>
