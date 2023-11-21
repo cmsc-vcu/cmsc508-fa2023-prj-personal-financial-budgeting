@@ -449,9 +449,6 @@ Summarizing the database design solution, discussion of any design tradeoffs, an
 
 <https://vcu.zoom.us/rec/share/oCleWmpGURaTP66RLhkGcvkRuolHAeBSUXy7Iw0Mw0ZqyXja9pi2Ifq444VIk0V0.z9Rcgx_cklmfOsti>
 
-## 13) API definition
-Database is to be accessible from the server through a RESTful API. What is your API definition? What are the various ways to get data? This should be documented so that someone wanting to leverage your database can understand how to access it.
-
 ```{python}
 #| eval: true
 #| echo: false
@@ -528,6 +525,9 @@ except Exception as e:
     print(f"An error occurred:\n{str(e)}\n")
 
 ```
+
+## 13) API definition
+Database is to be accessible from the server through a RESTful API. What is your API definition? What are the various ways to get data? This should be documented so that someone wanting to leverage your database can understand how to access it.
 
 ## 14) Demonstration of the API in action
 Somehow, you need to demonstrate how the API works, and that the API actually works. I leave this one to you. 
