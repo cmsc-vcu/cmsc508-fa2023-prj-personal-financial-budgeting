@@ -1,0 +1,18 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "cmsc508.com",
+            "port": 3306,
+            "driver": "MySQL",
+            "database": "23FA_groups_group44",
+            "username": "23FA_lizamamobj",
+            "password": "Shout4_lizamamobj_GOME",
+            "name": "finance db"
+        }
+    ]
+}
