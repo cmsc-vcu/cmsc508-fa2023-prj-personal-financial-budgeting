@@ -6,10 +6,11 @@ format:
     html:
         theme: minty
         toc: true
+        html-math-method: katex
         embed-resources: true
-#
-# To change themes, see: https://quarto.org/docs/output-formats/html-themes.html
-#
+        copy-code: true
+        css: styles.css
+---
 ---
 
 # GitHub Repository
@@ -529,8 +530,245 @@ except Exception as e:
 ## 13) API definition
 Database is to be accessible from the server through a RESTful API. What is your API definition? What are the various ways to get data? This should be documented so that someone wanting to leverage your database can understand how to access it.
 
+The following outlines the RESTful API for accessing and manipulating data in the Finance Database. 
+
+* The API allows clients to perform Create, Read, Update, and Delete (CRUD) operations on various financial entities including Users, Budgets, Actuals, and Transactions.
+
+## Base URL
+
+The base URL for the API is:
+<http://api.yourfinancedb.com/>
+
+
+This URL is the root address for all API requests.
+
+## Authentication
+
+This API requires authentication for access. Use the following method for authentication:
+
+- **Method**: Basic Authentication
+- **Credentials**: username and password
+
+## Endpoints
+
+### Users
+
+#### Get All Users
+- **URL**: `/users`
+- **Method**: `GET`
+- **Description**: Retrieve a list of all users.
+- **Response**: A JSON array of user objects.
+
+#### Create a New User
+- **URL**: `/users`
+- **Method**: `POST`
+- **Description**: Create a new user.
+- **Data Parameters**: `{ "userID": "string", "name": "string" }`
+- **Response**: The created user object.
+
+#### Update a User
+- **URL**: `/users/<userID>`
+- **Method**: `PUT`
+- **Description**: Update an existing user.
+- **URL Parameters**: `userID` is the ID of the user to update.
+- **Data Parameters**: `{ "name": "string" }`
+- **Response**: The updated user object.
+
+#### Delete a User
+- **URL**: `/users/<userID>`
+- **Method**: `DELETE`
+- **Description**: Delete a user.
+- **URL Parameters**: `userID` is the ID of the user to delete.
+- **Response**: A confirmation message.
+
+### Budgets
+
+#### Get All Budgets
+- **URL**: `/budgets`
+- **Method**: `GET`
+- **Description**: Retrieve a list of all budgets.
+- **Response**: A JSON array of budget objects.
+
+#### Create a New Budget
+- **URL**: `/budgets`
+- **Method**: `POST`
+- **Description**: Create a new budget.
+- **Data Parameters**: `{ "budgetID": "string", ... }`
+- **Response**: The created budget object.
+
+#### Update a Budget
+- **URL**: `/budgets/<budgetID>`
+- **Method**: `PUT`
+- **Description**: Update an existing budget.
+- **URL Parameters**: `budgetID` is the ID of the budget to update.
+- **Data Parameters**: `{ ... }`
+- **Response**: The updated budget object.
+
+#### Delete a Budget
+- **URL**: `/budgets/<budgetID>`
+- **Method**: `DELETE`
+- **Description**: Delete a budget.
+- **URL Parameters**: `budgetID` is the ID of the budget to delete.
+- **Response**: A confirmation message.
+
+### Actuals
+
+#### Get All Actuals
+- **URL**: `/actuals`
+- **Method**: `GET`
+- **Description**: Retrieve a list of all actuals.
+- **Response**: A JSON array of actual objects.
+
+#### Create a New Actual
+- **URL**: `/actuals`
+- **Method**: `POST`
+- **Description**: Create a new actual.
+- **Data Parameters**: `{ "actualID": "string", ... }`
+- **Response**: The created actual object.
+
+#### Update an Actual
+- **URL**: `/actuals/<actualID>`
+- **Method**: `PUT`
+- **Description**: Update an existing actual.
+- **URL Parameters**: `actualID` is the ID of the actual to update.
+- **Data Parameters**: `{ ... }`
+- **Response**: The updated actual object.
+
+#### Delete an Actual
+- **URL**: `/actuals/<actualID>`
+- **Method**: `DELETE`
+- **Description**: Delete an actual.
+- **URL Parameters**: `actualID` is the ID of the actual to delete.
+- **Response**: A confirmation message.
+
+### Transactions
+
+#### Get All Transactions
+- **URL**: `/transactions`
+- **Method**: `GET`
+- **Description**: Retrieve a list of all transactions.
+- **Response**: A JSON array of transaction objects.
+
+#### Create a New Transaction
+- **URL**: `/transactions`
+- **Method**: `POST`
+- **Description**: Create a new transaction.
+- **Data Parameters**: `{ "transID": "string", ... }`
+- **Response**: The created transaction object.
+
+#### Update a Transaction
+- **URL**: `/transactions/<transID>`
+- **Method**: `PUT`
+- **Description**: Update an existing transaction.
+- **URL Parameters**: `transID` is the ID of the transaction to update.
+- **Data Parameters**: `{ ... }`
+- **Response**: The updated transaction object.
+
+#### Delete a Transaction
+- **URL**: `/transactions/<transID>`
+- **Method**: `DELETE`
+- **Description**: Delete a transaction.
+- **URL Parameters**: `transID` is the ID of the transaction to delete.
+- **Response**: A confirmation message.
+
+## Status Codes
+
+The API returns the following status codes:
+
+- `200 OK`: The request was successful.
+- `201 Created`: A new resource was successfully created.
+- `400 Bad Request`: The request was invalid or cannot be served.
+- `404 Not Found`: The requested resource could not be found.
+- `500 Internal Server Error`: A generic error occurred on the server.
+
 ## 14) Demonstration of the API in action
 Somehow, you need to demonstrate how the API works, and that the API actually works. I leave this one to you. 
+
+# Demonstration of Finance Database API
+
+This document demonstrates how to interact with the Finance Database API. We will use `curl` commands for simplicity, but these operations can also be performed using tools like Postman.
+
+## Prerequisites
+
+Ensure that the API server is running and accessible. The base URL for the API in these examples will be `http://api.yourfinancedb.com/`.
+
+## Create a New User
+
+To create a new user, we send a POST request to the `/users` endpoint with the user's details.
+
+### Request
+
+```bash
+curl -X POST http://api.yourfinancedb.com/users \
+  -H "Content-Type: application/json" \
+  -d '{"userID": "U123", "name": "John Doe"}'
+```
+
+### Expected Response
+```json
+{
+  "userID": "U123",
+  "name": "John Doe"
+}
+```
+
+## Retrieve All Users
+Next, we retrieve a list of all users with a GET request.
+
+### Request
+```bash
+curl -X GET http://api.yourfinancedb.com/users
+```
+
+### Expected Response
+```json
+[
+  {
+    "userID": "U123",
+    "name": "John Doe"
+  }
+  // ... other users
+]
+```
+
+## Update a User
+To update a user's details, we use a PUT request.
+
+### Request
+```bash
+curl -X PUT http://api.yourfinancedb.com/users/U123 \
+-H "Content-Type: application/json" \
+-d '{"name": "Jane Doe"}'
+```
+### Expected Response
+```json
+{
+  "userID": "U123",
+  "name": "Jane Doe"
+}
+```
+
+## Delete a User
+Finally, to delete a user, we send a DELETE request.
+
+### Request
+```bash
+curl -X DELETE http://api.yourfinancedb.com/users/U123
+```
+### Expected Response
+```json
+{
+  "message": "User deleted successfully"
+}
+```
+
+## Extra Demonstration:
+
+* Screenshots: Include screenshots of the API requests and responses, especially if using a graphical tool like Postman.
+* Code Blocks: Use code blocks to clearly present curl commands or Python requests code snippets.
+* Narrative: Add explanatory text before each code snippet to guide the reader through what each step is doing.
+* Formatting: Use Quarto's formatting capabilities to make the document easy to read and navigate.
+* Error Handling: Demonstrate common errors and how the API handles them, including screenshots or code snippets of both the request and the API's response.
 
 ## 15) Links to source code
 This includes your DDL and DML SQL code. Your database should be able to be rebuilt from scratch using your DML and DDL.
