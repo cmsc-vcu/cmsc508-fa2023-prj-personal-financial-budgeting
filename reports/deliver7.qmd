@@ -1,6 +1,6 @@
 ---
-title: Deliverable 4 - Database Design (Phase 1)
-date: October 15, 2023
+title: Deliverable 7 - Database Implementation
+date: December 9th, 2023
 author: Bryan Montecino & Corbin Nash
 format:
     html:
