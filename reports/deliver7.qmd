@@ -711,6 +711,9 @@ curl -X POST http://api.yourfinancedb.com/users \
   "name": "John Doe"
 }
 ```
+### Postman Response
+
+!["Hi John!"](hijohn!.png)
 
 ## Retrieve All Users
 Next, we retrieve a list of all users with a GET request.
@@ -730,6 +733,9 @@ curl -X GET http://api.yourfinancedb.com/users
   // ... other users
 ]
 ```
+### Postman Response
+
+!["Theres John"](heresjohnny.png)
 
 ## Update a User
 To update a user's details, we use a PUT request.
@@ -747,6 +753,9 @@ curl -X PUT http://api.yourfinancedb.com/users/U123 \
   "name": "Jane Doe"
 }
 ```
+### Postman Response
+
+!["Hi Jane!"](hijane!.png)
 
 ## Delete a User
 Finally, to delete a user, we send a DELETE request.
@@ -761,6 +770,31 @@ curl -X DELETE http://api.yourfinancedb.com/users/U123
   "message": "User deleted successfully"
 }
 ```
+
+### Postman Response
+
+!["Bye Jane"](byejane.png)
+
+
+## Try to delete a user that does not exist
+
+### Request
+```bash
+{
+    curl -X DELETE http://api.yourfinancedb.com/users/U123
+}
+```
+
+### Expected Response
+```json
+{
+  "error": "User not found"
+}
+```
+
+### Postman Response
+
+!["Nobody home"](nothere.png)
 
 ## Extra Demonstration:
 
