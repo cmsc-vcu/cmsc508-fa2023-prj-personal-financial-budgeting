@@ -807,6 +807,8 @@ curl -X DELETE http://api.yourfinancedb.com/users/U123
 ## 15) Links to source code
 This includes your DDL and DML SQL code. Your database should be able to be rebuilt from scratch using your DML and DDL.
 
+Here is a link to the part of the GitHub which contains the DDL: <https://github.com/cmsc-vcu/cmsc508-fa2023-prj-personal-financial-budgeting/blob/main/reports/deliver7-ddl.sql>
+
 ## 16) Future considerations
 What needs to be done next to take your project to the next level? If you had more time, what would you do next?
 
