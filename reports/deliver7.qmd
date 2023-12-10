@@ -812,5 +812,9 @@ Here is a link to the part of the GitHub which contains the DDL: <https://github
 ## 16) Future considerations
 What needs to be done next to take your project to the next level? If you had more time, what would you do next?
 
+If we had more time, the most usefull thing to add for users of this database would most likely be some form of front ent UI to make it easier for people to see their budgets/finances. Another thing to add might be an automatic way to view income and spending trends to help users plan for their future finances easier.
+
 ## 17) Reflections on the overall project
 How did the project go? Did you achieve what you originally intended to build? If not, what kept you from achieving it?
+
+The project went fairly well. We for the most part, we acheived what we intended to as of deliverable 4.
