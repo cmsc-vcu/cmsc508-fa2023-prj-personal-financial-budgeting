@@ -133,3 +133,7 @@ def delete_transaction(transID):
     db.session.delete(transaction)
     db.session.commit()
     return jsonify({'message': 'Transaction deleted successfully'})
+
+# Run the Flask app
+if __name__ == '__main__':
+    app.run(debug=True)
