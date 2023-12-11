@@ -768,7 +768,109 @@ The API returns the following status codes:
 - `500 Internal Server Error`: A generic error occurred on the server.
 
 ## 14) Demonstration of the API in action
-Somehow, you need to demonstrate how the API works, and that the API actually works. I leave this one to you. 
+
+Here are the following endpoints for the database API:
+```python
+# User Endpoints
+@app.route('/users', methods=['GET'])
+def get_users():
+    return jsonify(users)
+
+@app.route('/users', methods=['POST'])
+def create_user():
+    user = request.json
+    users[user['userID']] = user
+    return jsonify(user), 201
+
+@app.route('/users/<userID>', methods=['PUT'])
+def update_user(userID):
+    if userID not in users:
+        return jsonify({'error': 'User not found'}), 404
+    users[userID] = request.json
+    return jsonify(users[userID])
+
+@app.route('/users/<userID>', methods=['DELETE'])
+def delete_user(userID):
+    if userID not in users:
+        return jsonify({'error': 'User not found'}), 404
+    del users[userID]
+    return jsonify({'message': 'User deleted successfully'})
+
+# Budgets Endpoints
+@app.route('/budgets', methods=['GET'])
+def get_budgets():
+    return jsonify(budgets)
+
+@app.route('/budgets', methods=['POST'])
+def create_budget():
+    budget = request.json
+    budgets[budget['budgetID']] = budget
+    return jsonify(budget), 201
+
+@app.route('/budgets/<budgetID>', methods=['PUT'])
+def update_budget(budgetID):
+    if budgetID not in budgets:
+        return jsonify({'error': 'Budget not found'}), 404
+    budgets[budgetID] = request.json
+    return jsonify(budgets[budgetID])
+
+@app.route('/budgets/<budgetID>', methods=['DELETE'])
+def delete_budget(budgetID):
+    if budgetID not in budgets:
+        return jsonify({'error': 'Budget not found'}), 404
+    del budgets[budgetID]
+    return jsonify({'message': 'Budget deleted successfully'})
+
+# Actuals Endpoints
+@app.route('/actuals', methods=['GET'])
+def get_actuals():
+    return jsonify(actuals)
+
+@app.route('/actuals', methods=['POST'])
+def create_actual():
+    actual = request.json
+    actuals[actual['actualID']] = actual
+    return jsonify(actual), 201
+
+@app.route('/actuals/<actualID>', methods=['PUT'])
+def update_actual(actualID):
+    if actualID not in actuals:
+        return jsonify({'error': 'Actual not found'}), 404
+    actuals[actualID] = request.json
+    return jsonify(actuals[actualID])
+
+@app.route('/actuals/<actualID>', methods=['DELETE'])
+def delete_actual(actualID):
+    if actualID not in actuals:
+        return jsonify({'error': 'Actual not found'}), 404
+    del actuals[actualID]
+    return jsonify({'message': 'Actual deleted successfully'})
+
+# Transactions Endpoints
+@app.route('/transactions', methods=['GET'])
+def get_transactions():
+    return jsonify(transactions)
+
+@app.route('/transactions', methods=['POST'])
+def create_transaction():
+    transaction = request.json
+    transactions[transaction['transID']] = transaction
+    return jsonify(transaction), 201
+
+@app.route('/transactions/<transID>', methods=['PUT'])
+def update_transaction(transID):
+    if transID not in transactions:
+        return jsonify({'error': 'Transaction not found'}), 404
+    transactions[transID] = request.json
+    return jsonify(transactions[transID])
+
+@app.route('/transactions/<transID>', methods=['DELETE'])
+def delete_transaction(transID):
+    if transID not in transactions:
+        return jsonify({'error': 'Transaction not found'}), 404
+    del transactions[transID]
+    return jsonify({'message': 'Transaction deleted successfully'})
+```
 
 ## Demonstration of Finance Database API
 
@@ -885,10 +987,12 @@ curl -X DELETE http://api.yourfinancedb.com/users/U123
 ## 15) Links to source code
 
 Here is the link to the part of the GitHub which contains the DDL source code: 
-- <https://github.com/cmsc-vcu/cmsc508-fa2023-prj-personal-financial-budgeting/blob/main/reports/deliver7-ddl.sql>
+
+* <https://github.com/cmsc-vcu/cmsc508-fa2023-prj-personal-financial-budgeting/blob/main/reports/deliver7-ddl.sql>
 
 Here is the link to the part of the GitHub which contains the API source code:
-- <https://github.com/cmsc-vcu/cmsc508-fa2023-prj-personal-financial-budgeting/tree/main/api>
+
+* <https://github.com/cmsc-vcu/cmsc508-fa2023-prj-personal-financial-budgeting/tree/main/api>
 
 ## 16) Future considerations
 
@@ -933,4 +1037,4 @@ The database project went fairly well! We were able to achieve our primary objec
 
 Like any project, we faced challenges and learning curves along the way. One of the key things that allowed us to succeed in this project is having professor Leonard show us key concepts and how to implement them with Quarto Markdown. Having deadlines throughout the entire semester made this project come to a finished product in a smooth manner.
 
-In conclusion, while there were some deviations from our initial plan, the project was largely successful in achieving its main goals. The experience from this project, along with the course has left the group with not only a functional product but also with key learnings that will help us in the future whenever we need database knowledge and implementation.
+In conclusion, while there were some deviations from our initial plan, the project was largely successful in achieving its main goals. The experience from this project, along with the course has left the group with not only a functional product but also with key learnings that will help us in the future whenever we need database knowledge and implementation.j
