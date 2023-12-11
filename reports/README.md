@@ -5,11 +5,7 @@ This folder contains a series of deliverable reports for our project. Each repor
 ## Folder Structure
 
 - **deliver4.qmd**: Report for Milestone 4.
-- **deliver5.qmd**: Report for Milestone 5.
-- **deliver6.qmd**: Report for Milestone 6.
 - **deliver7.qmd**: Report for Milestone 7.
-- **deliver8.qmd**: Report for Milestone 8.
-- **deliver9.qmd**: Report for Milestone 9.
 
 ## Accessing Reports
 
