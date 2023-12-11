@@ -6,14 +6,9 @@ Welcome to the Personal Budgeting Database repository! This project is a semeste
 - Bryan Lizama Montecino
 - Corbin Allen Nash
 
-Links to previous pitch video:
+URL to previous pitch video:
 
 <https://vcu.zoom.us/rec/share/-nhA8wBIFG11yaFMcAL-boD81VZWKOAI2_CDKKjJjZZTUlzsKFVpvNFLB5OnkI53.XNolZw6VAD-LR4Go>
-
-Alert: 
-DO NOT USE THE *./docs* FOLDER unless you're comfy with what you're doing!
-- Folder name is reserved for use by Quarto. Quarto will create and manage a public, static website in this folder once we set it up in a later assignment.
-- You should not store source files in the *./docs* folder unless you explicitly want them shared publically.
 
 Available Folders:
 - *./src* - to hold python/flask source code
