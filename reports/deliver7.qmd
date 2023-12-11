@@ -1037,4 +1037,4 @@ The database project went fairly well! We were able to achieve our primary objec
 
 Like any project, we faced challenges and learning curves along the way. One of the key things that allowed us to succeed in this project is having professor Leonard show us key concepts and how to implement them with Quarto Markdown. Having deadlines throughout the entire semester made this project come to a finished product in a smooth manner.
 
-In conclusion, while there were some deviations from our initial plan, the project was largely successful in achieving its main goals. The experience from this project, along with the course has left the group with not only a functional product but also with key learnings that will help us in the future whenever we need database knowledge and implementation.j
+In conclusion, while there were some deviations from our initial plan, the project was largely successful in achieving its main goals. The experience from this project, along with the course has left the group with not only a functional product but also with key learnings that will help us in the future whenever we need database knowledge and implementation.
