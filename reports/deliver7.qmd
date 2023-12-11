@@ -11,7 +11,6 @@ format:
         copy-code: true
         css: styles.css
 ---
----
 
 # GitHub Repository
 
@@ -22,10 +21,19 @@ Access to the repository to see code and commits.
 # Project overview and key deliverables
 
 1) Our project centers on developing a user-friendly database system that empowers individuals to take control of their personal finances, offering tools for income tracking, expense management and budget planning.
+
 2) A bulleted list of:
-    * URL to your pitch video: <https://vcu.zoom.us/rec/share/-nhA8wBIFG11yaFMcAL-boD81VZWKOAI2_CDKKjJjZZTUlzsKFVpvNFLB5OnkI53.XNolZw6VAD-LR4Go>
-    * URL to your design video (Task 12): <https://vcu.zoom.us/rec/share/oCleWmpGURaTP66RLhkGcvkRuolHAeBSUXy7Iw0Mw0ZqyXja9pi2Ifq444VIk0V0.z9Rcgx_cklmfOsti>
-    * URL to your GITHUB repository: <https://github.com/cmsc-vcu/cmsc508-fa2023-prj-personal-financial-budgeting/tree/main>
+ * URL to your pitch video: 
+
+<https://vcu.zoom.us/rec/share/-nhA8wBIFG11yaFMcAL-boD81VZWKOAI2_CDKKjJjZZTUlzsKFVpvNFLB5OnkI53.XNolZw6VAD-LR4Go>
+    
+* URL to your design video (Task 12): 
+   
+<https://vcu.zoom.us/rec/share/oCleWmpGURaTP66RLhkGcvkRuolHAeBSUXy7Iw0Mw0ZqyXja9pi2Ifq444VIk0V0.z9Rcgx_cklmfOsti>
+   
+* URL to your GITHUB repository: 
+   
+<https://github.com/cmsc-vcu/cmsc508-fa2023-prj-personal-financial-budgeting/tree/main>
 
 # Problem description
 
@@ -262,145 +270,227 @@ Given the context, scope, and perspective, the team came up with 20 distinct que
 
 #### Queries with relational algebra:
 
-* Query 1: Retrieve User's Budgets
-    
-    π budget (σ userID = 'U1', User)
+1. **Query 1:** Retrieve User's Budgets
+   - `π budget (σ userID = 'U1', User)`
 
-* Query 2: List All Transactions for a Specific User
+2. **Query 2:** List All Transactions for a Specific User
+   - `π transaction (σ userID = 'U3', User)`
 
-    π transaction (σ userID = 'U3', User)
+3. **Query 3:** Calculate Total Price/Gain for a Budget
+   - `∑ price/gain (σ BudgetID = 'B2', Budget)`
 
-* Query 3: Calculate Total Price/Gain for a Budget
+4. **Query 4:** Compare Budgeted vs. Actual Expenses for a Specific Budget
+   - `π budgetID, Source, Price/Gain, Actual (σ BudgetID = 'B4', Budget)`
 
-    
-    ∑ price/gain (σ BudgetID = 'B2', Budget)
+5. **Query 5:** Find Transactions Above a Certain Amount for a User
+   - `π transaction, price/gain (σ userID = 'U2' ∧ price/gain > 100, User ⨝ Transaction)`
 
-* Query 4: Compare Budgeted vs. Actual Expenses for a Specific Budget
+6. **Query 6:** Retrieve Budgets with Specific Time Periods
+   - `π BudgetID, TimePeriod (σ TimePeriod = '2 months', Budget)`
 
-    π budgetID, Source, Price/Gain, Actual (σ BudgetID = 'B4', Budget)
+7. **Query 7:** Determine Total Income for a User in a Year
+   - `∑ price/gain (σ userID = 'U4' ∧ EXTRACT(Year FROM Date) = 2023, Transaction)`
 
-* Query 5: Find Transactions Above a Certain Amount for a User
+8. **Query 8:** Find Largest Expense Category in a Budget
+   - `MAX(price/gain) (σ BudgetID = 'B1' ∧ source IN { 'Entertainment', 'Transportation', 'Necessities', 'Medical', 'Job', 'Gifts', 'Side Hustle', 'Other' }, Budget)`
 
-    π transaction, price/gain (σ userID = 'U2' ∧ price/gain > 100, User ⨝ Transaction)
+9. **Query 9:** Retrieve Transactions from a Specific Date for a User
+   - `π transaction, Date (σ userID = 'U5' ∧ Date = '2023-10-17', User ⨝ Transaction)`
 
-* Query 6: Retrieve Budgets with Specific Time Periods
+10. **Query 10:** List Transactions Categorized as 'Entertainment' for a User
+    - `π transaction, source (σ userID = 'U1' ∧ source = 'Entertainment', User ⨝ Transaction)`
 
-    π BudgetID, TimePeriod (σ TimePeriod = '2 months', Budget)
+11. **Query 11:** Calculate Average Monthly Income for a User
+    - `AVG(price/gain) (σ userID = 'U3' ∧ EXTRACT(Month FROM Date) = 10, Transaction)`
 
-* Query 7: Determine Total Income for a User in a Year
+12. **Query 12:** Retrieve Transactions Below a Certain Amount in a Budget
+    - `π transaction, price/gain (σ BudgetID = 'B6' ∧ price/gain < 200, Budget ⨝ Transaction)`
 
-    ∑ price/gain (σ userID = 'U4' ∧ EXTRACT(Year FROM Date) = 2023, Transaction)
+13. **Query 13:** Find Budgets Exceeded by Actual Expenses for a User
+    - `π BudgetID, Source (σ userID = 'U2' ∧ Price/Gain < Actual, Budget)`
 
-* Query 8: Find Largest Expense Category in a Budget
+14. **Query 14:** Retrieve Financial Advisor's Clients
+    - `π name (σ advisorID IS NOT NULL, User)`
 
-    MAX(price/gain) (σ BudgetID = 'B1' ∧ source IN { 'Entertainment', 'Transportation', 'Necessities', 'Medical', 'Job', 'Gifts', 'Side Hustle', 'Other' }, Budget)
+15. **Query 15:** Calculate Total Expenses by Transaction Category for a User
+    - `∑ price/gain (σ userID = 'U3' ∧ source IN { 'Entertainment', 'Transportation', 'Necessities', 'Medical', 'Job', 'Gifts', 'Side Hustle', 'Other' }, Transaction)`
 
-* Query 9: Retrieve Transactions from a Specific Date for a User
+16. **Query 16:** Retrieve All Transactions from a Specific Bank for a User
+    - `π transaction, source (σ userID = 'U4' ∧ source = 'Bank', User ⨝ Transaction)`
 
-    π transaction, Date (σ userID = 'U5' ∧ Date = '2023-10-17', User ⨝ Transaction)
+17. **Query 17:** List Transactions Made on a Specific Date for a User
+    - `π transaction, Date (σ userID = 'U1' ∧ Date = '2023-10-03', User ⨝ Transaction)`
 
-* Query 10: List Transactions Categorized as 'Entertainment' for a User
+18. **Query 18:** Retrieve Monthly Expenses in Excess of Budget for a User
+    - `π budgetID, Price/Gain, Actual (σ userID = 'U2' ∧ EXTRACT(Month FROM Date) = 10, Budget ⨝ Transaction)`
 
-    π transaction, source (σ userID = 'U1' ∧ source = 'Entertainment', User ⨝ Transaction)
+19. **Query 19:** Calculate Average Monthly Expense for a User
+    - `AVG(price/gain) (σ userID = 'U5' ∧ EXTRACT(Month FROM Date) = 10, Transaction)`
 
-* Query 11: Calculate Average Monthly Income for a User
-
-    AVG(price/gain) (σ userID = 'U3' ∧ EXTRACT(Month FROM Date) = 10, Transaction)
-
-* Query 12: Retrieve Transactions Below a Certain Amount in a Budget
-
-    π transaction, price/gain (σ BudgetID = 'B6' ∧ price/gain < 200, Budget ⨝ Transaction)
-
-* Query 13: Find Budgets Exceeded by Actual Expenses for a User
-
-    π BudgetID, Source (σ userID = 'U2' ∧ Price/Gain < Actual, Budget)
-
-* Query 14: Retrieve Financial Advisor's Clients
-
-    π name (σ advisorID IS NOT NULL, User)
-
-* Query 15: Calculate Total Expenses by Transaction Category for a User
-
-    ∑ price/gain (σ userID = 'U3' ∧ source IN { 'Entertainment', 'Transportation', 'Necessities', 'Medical', 'Job', 'Gifts', 'Side Hustle', 'Other' }, Transaction)
-
-* Query 16: Retrieve All Transactions from a Specific Bank for a User
-
-    π transaction, source (σ userID = 'U4' ∧ source = 'Bank', User ⨝ Transaction)
-
-* Query 17: List Transactions Made on a Specific Date for a User
-
-    π transaction, Date (σ userID = 'U1' ∧ Date = '2023-10-03', User ⨝ Transaction)
-
-* Query 18: Retrieve Monthly Expenses in Excess of Budget for a User
-
-    π budgetID, Price/Gain, Actual (σ userID = 'U2' ∧ EXTRACT(Month FROM Date) = 10, Budget ⨝ Transaction)
-
-* Query 19: Calculate Average Monthly Expense for a User
-
-    AVG(price/gain) (σ userID = 'U5' ∧ EXTRACT(Month FROM Date) = 10, Transaction)
-
-* Query 20: Retrieve Transaction History from a Specific Bank for a User
-
-    π transaction, Date (σ userID = 'U4' ∧ source = 'Bank', User ⨝ Transaction)
+20. **Query 20:** Retrieve Transaction History from a Specific Bank for a User
+    - `π transaction, Date (σ userID = 'U4' ∧ source = 'Bank', User ⨝ Transaction)`
 
 ## 10) Sample Data
 Sample data for each relation your design documented above
 
+Link to DDL code:
+<https://github.com/cmsc-vcu/cmsc508-fa2023-prj-personal-financial-budgeting/blob/main/reports/deliver7-ddl.sql>
+
 * User Relation:
 
-| userID | budget    | name           | transaction  |
-|--------|-----------|----------------|--------------|
-| U1     | B1, B2    | John Doe       | T1, T2, T3   |
-| U2     | B3        | Jane Smith     | T4, T5       |
-| U3     | B4, B5    | Robert Johnson | T6, T7       |
-| U4     | B6, B7    | Emily Brown    | T8, T9       |
-| U5     | B8, B9    | Michael Lee    | T10, T11     |
+| userID | budget       | name             | transaction                |
+|--------|--------------|------------------|----------------------------|
+| U1     | B1, B2       | John Doe         | T1, T2, T3                 |
+| U2     | B3           | Jane Smith       | T4, T5                     |
+| U3     | B4, B5       | Robert Johnson   | T6, T7                     |
+| U4     | B6, B7       | Emily Brown      | T8, T9                     |
+| U5     | B8, B9       | Michael Lee      | T10, T11                   |
+| U6     | B10          | Phillip Castor   | T12, T13, T14, T15         |
+| U7     | B11, B12, B13 | Amelia Turner    | T16, T17, T18, T19, T20, T21, T22, T23 |
+| U8     | B14          | Benjamin Martinez| T24, T25, T26, T27, T28, T29|
+| U9     | B15          | Chloe Murphy     |                            |
+| U10    | B16, B17, B18| Dylan Anderson   | T30, T31, T32, T33, T34    |
+| U11    | B19, B20     | Emma Bennett     | T35, T36, T37, T38, T39, T40|
+| U12    | B21, B22, B23| Gavin Parker     | T41, T42, T43, T44, T45    |
+| U13    | B24          | Isabella Ross    | T46, T47, T48, T49, T50    |
+| U14    | B25          | Jackson Mitchell | T51, T52                   |
+| U15    |              | Olivia Jenkins   |                            |
+
 
 * Budget Relation:
 
-| BudgetID | Price/Gain | Source        | Actual         | TimePeriod |
-|----------|------------|---------------|----------------|------------|
-| B1       | 3000.50    | Job           | A1, A2, A3     | 1 month    |
-| B2       | 150.00     | Gifts         | A4, A5, A6     | 2 months   |
-| B3       | 500.75     | Side Hustle   | A7, A8, A9     | 3 months   |
-| B4       | 1200.25    | Entertainment  | A10, A11, A12 | 1 month    |
-| B5       | 600.00     | Transportation | A13, A14, A15 | 2 months   |
-| B6       | 2500.00    | Necessities   | A16, A17, A18 | 3 months   |
-| B7       | 750.50     | Medical       | A19, A20, A21 | 1 month    |
-| B8       | 400.75     | Job           | A22, A23, A24 | 2 months   |
-| B9       | 100.00     | Entertainment  | A25, A26, A27 | 3 months   |
+| budgetID | priceGain | source        | actual         | timePeriod |
+|----------|-----------|---------------|----------------|------------|
+| B1       | 3000.50   | Job           | A1, A2         | 2023-01    |
+| B2       | 150.00    | Gifts         | A3, A4         | 2023-02    |
+| B3       | 500.75    | Side Hustle   | A5, A6         | 2023-03    |
+| B4       | 1200.25   | Entertainment | A7, A8         | 2023-01    |
+| B5       | 600.00    | Transportation| A9, A10        | 2023-02    |
+| B6       | 2500.00   | Necessities   | A11, A12       | 2023-03    |
+| B7       | 750.50    | Medical       | A13, A14       | 2023-01    |
+| B8       | 400.75    | Job           | A15, A16       | 2023-02    |
+| B9       | 100.00    | Entertainment | A17, A18       | 2023-03    |
+| B10      | 150.25    | Entertainment | A19, A20       | 2023-03    |
+| B11      | 75.50     | Transportation| A21, A22       | 2023-04    |
+| B12      | 200.00    | Necessities   | A23, A24       | 2023-05    |
+| B13      | 30.00     | Medical       | A25, A26       | 2023-06    |
+| B14      | 120.75    | Job           | A27, A28       | 2023-07    |
+| B15      | 50.50     | Gifts         | A29, A30       | 2023-08    |
+| B16      | 80.00     | Side Hustle   | A31, A32       | 2023-09    |
+| B17      | 95.25     | Other         | A33, A34       | 2023-10    |
+| B18      | 110.50    | Entertainment | A35, A36       | 2023-11    |
+| B19      | 45.75     | Transportation| A37, A38       | 2023-12    |
+| B20      | 180.00    | Necessities   | A39, A40       | 2024-01    |
+| B21      | 25.00     | Medical       | A41, A42       | 2024-02    |
+| B22      | 135.75    | Job           | A43, A44       | 2024-03    |
+| B23      | 60.50     | Gifts         | A45, A46       | 2024-04    |
+| B24      | 75.00     | Side Hustle   | A47, A48       | 2024-05    |
+| B25      | 90.25     | Other         | A49, A50       | 2024-06    |
 
 * Actual Relation:
 
-| ActualID | Transaction | Budget | TimePeriod |
-|----------|-------------|--------|------------|
-| A1       | T1, T2      | B1     | 1 month    |
-| A2       | T3, T4      | B2     | 2 months   |
-| A3       | T5, T6      | B3     | 3 months   |
-| A4       | T7, T8      | B4     | 1 month    |
-| A5       | T9, T10     | B5     | 2 months   |
-| A6       | T11, T12    | B6     | 3 months   |
-| A7       | T13, T14    | B7     | 1 month    |
-| A8       | T15, T16    | B8     | 2 months   |
-| A9       | T17, T18    | B9     | 3 months   |
+| actualID | transaction      | budget | timePeriod |
+|----------|-------------------|--------|------------|
+| A1       | T1, T2            | B1     | 2023-01    |
+| A2       | T3, T4            | B2     | 2023-02    |
+| A3       | T5, T6            | B3     | 2023-03    |
+| A4       | T7, T8            | B4     | 2023-01    |
+| A5       | T9, T10           | B5     | 2023-02    |
+| A6       | T11, T12          | B6     | 2023-03    |
+| A7       | T13, T14          | B7     | 2023-01    |
+| A8       | T15, T16          | B8     | 2023-02    |
+| A19      | T12, T13          | B10    | 2023-03    |
+| A20      | T14, T15          | B10    | 2023-03    |
+| A21      | T16, T17, T18     | B11    | 2023-04    |
+| A22      |                   | B11    | 2023-04    |
+| A23      | T19               | B12    | 2023-05    |
+| A24      | T20, T21          | B12    | 2023-05    |
+| A25      | T22               | B13    | 2023-06    |
+| A26      | T23               | B13    | 2023-06    |
+| A27      | T24,              | B14    | 2023-07    |
+| A28      | T25, T26, T27, T28, T29 | B14 | 2023-07 |
+| A29      |                   | B15    | 2023-08    |
+| A30      |                   | B15    | 2023-08    |
+| A31      | T30               | B16    | 2023-09    |
+| A32      |                   | B16    | 2023-09    |
+| A33      | T31               | B17    | 2023-10    |
+| A34      | T32               | B17    | 2023-10    |
+| A35      |                   | B18    | 2023-11    |
+| A36      | T33, T34          | B18    | 2023-11    |
+| A37      | T35, T36          | B19    | 2023-12    |
+| A38      | T37, T38          | B19    | 2023-12    |
+| A39      | T39, T40          | B20    | 2024-01    |
+| A40      |                   | B20    | 2024-01    |
+| A41      |                   | B21    | 2024-02    |
+| A42      | T41               | B21    | 2024-02    |
+| A43      | T42               | B22    | 2024-03    |
+| A44      | T43               | B22    | 2024-03    |
+| A45      |                   | B23    | 2024-04    |
+| A46      | T44, T45          | B23    | 2024-04    |
+| A47      | T46, T47          | B24    | 2024-05    |
+| A48      | T48, T49, T50     | B24    | 2024-05    |
+| A49      | T51               | B25    | 2024-06    |
+| A50      | T52               | B25    | 2024-06    |
+
 
 * Transaction Relation:
 
-| TransID | Price/Gain | Source      | Actual         | Date       |
-|---------|------------|-------------|----------------|------------|
-| T1      | 100.50     | Groceries   | A1, A2, A3     | 2023-10-01 |
-| T2      | 50.00      | Entertainment | A4, A5, A6   | 2023-10-03 |
-| T3      | 75.25      | Transportation | A7, A8, A9 | 2023-10-05 |
-| T4      | 120.00     | Hobbies      | A10, A11, A12  | 2023-10-07 |
-| T5      | 40.50      | Groceries   | A13, A14, A15  | 2023-10-09 |
-| T6      | 20.00      | Entertainment | A16, A17, A18 | 2023-10-11 |
-| T7      | 150.75     | Medical     | A19, A20, A21  | 2023-10-13 |
-| T8      | 300.00     | Groceries   | A22, A23, A24  | 2023-10-15 |
-| T9      | 50.50      | Hobbies      | A25, A26, A27  | 2023-10-17 |
-| T10     | 65.00      | Transportation | A28, A29, A30 | 2023-10-19 |
+| transID | priceGain | source         | actual | date       |
+|---------|-----------|----------------|--------|------------|
+| T1      | 100.50    | Groceries      | A1     | 2023-01-01 |
+| T2      | 50.00     | Entertainment  | A2     | 2023-02-01 |
+| T3      | 75.25     | Transportation | A3     | 2023-03-01 |
+| T4      | 120.00    | Hobbies        | A4     | 2023-01-02 |
+| T5      | 40.50     | Groceries      | A5     | 2023-02-02 |
+| T6      | 20.00     | Entertainment  | A6     | 2023-03-02 |
+| T7      | 150.75    | Medical        | A7     | 2023-01-03 |
+| T8      | 300.00    | Groceries      | A8     | 2023-02-03 |
+| T9      | 50.50     | Hobbies        | A9     | 2023-03-03 |
+| T10     | 75.25     | Entertainment  | A19    | 2023-03-03 |
+| T11     | 30.75     | Transportation | A19    | 2023-03-03 |
+| T12     | 120.00    | Entertainment  | A20    | 2023-03-03 |
+| T13     | 45.50     | Transportation | A20    | 2023-03-03 |
+| T14     | 100.25    | Necessities    | A21    | 2023-04-03 |
+| T15     | 60.00     | Entertainment  | A21    | 2023-04-03 |
+| T16     | 85.75     | Job            | A22    | 2023-04-03 |
+| T17     | 20.50     | Job            | A22    | 2023-04-03 |
+| T18     | 45.00     | Gifts          | A22    | 2023-04-03 |
+| T19     | 80.25     | Side Hustle    | A23    | 2023-05-03 |
+| T20     | 25.50     | Medical        | A24    | 2023-05-03 |
+| T21     | 110.75    | Gifts          | A24    | 2023-05-03 |
+| T22     | 30.00     | Entertainment  | A25    | 2023-06-03 |
+| T23     | 55.25     | Medical        | A26    | 2023-06-03 |
+| T24     | 70.50     | Gifts          | A27    | 2023-07-03 |
+| T25     | 90.25     | Side Hustle    | A28    | 2023-07-03 |
+| T26     | 40.75     | Job            | A28    | 2023-07-03 |
+| T27     | 65.00     | Job            | A28    | 2023-07-03 |
+| T28     | 95.75     | Job            | A28    | 2023-07-03 |
+| T29     | 35.50     | Job            | A28    | 2023-07-03 |
+| T30     | 60.75     | Gifts          | A28    | 2023-07-03 |
+| T31     | 75.00     | Side Hustle    | A29    | 2023-08-03 |
+| T32     | 85.25     | Other          | A29    | 2023-08-03 |
+| T33     | 110.50    | Entertainment  | A31    | 2023-09-03 |
+| T34     | 45.75     | Transportation | A31    | 2023-09-03 |
+| T35     | 180.00    | Necessities    | A36    | 2023-11-03 |
+| T36     | 25.00     | Medical        | A36    | 2023-11-03 |
+| T37     | 135.75    | Job            | A36    | 2023-11-03 |
+| T38     | 60.50     | Gifts          | A36    | 2023-11-03 |
+| T39     | 75.00     | Side Hustle    | A37    | 2023-12-03 |
+| T40     | 90.25     | Other          | A38    | 2023-12-03 |
+| T41     | 110.50    | Entertainment  | A39    | 2024-01-03 |
+| T42     | 45.75     | Transportation | A40    | 2024-01-03 |
+| T43     | 180.00    | Necessities    | A41    | 2024-02-03 |
+| T44     | 25.00     | Medical        | A42    | 2024-02-03 |
+| T45     | 135.75    | Job            | A43    | 2024-03-03 |
+| T46     | 60.50     | Gifts          | A44    | 2024-03-03 |
+| T47     | 75.00     | Side Hustle    | A45    | 2024-04-03 |
+| T48     | 90.25     | Other          | A46    | 2024-04-03 |
+| T49     | 110.50    | Entertainment  | A47    | 2024-05-03 |
+| T50     | 45.75     | Transportation | A48    | 2024-05-03 |
+| T51     | 90.00     | Other          | A49    | 2024-06-03 |
+| T52     | 50.50     | Hobbies        | A50    | 2024-06-03 |
 
 ## 11) Draft Project schedule
-Final project due by December 12,this report is due October 13.
 
 - What needs to happen between now and then to ensure that you get this whole thing done? 
 ```{mermaid}
@@ -446,7 +536,7 @@ gantt
 ## 12) Video Presentation
 Summarizing the database design solution, discussion of any design tradeoffs, and reflections on the overall process.
 
-* URL to design video (Task 12): 
+* URL link to Design Video 
 
 <https://vcu.zoom.us/rec/share/oCleWmpGURaTP66RLhkGcvkRuolHAeBSUXy7Iw0Mw0ZqyXja9pi2Ifq444VIk0V0.z9Rcgx_cklmfOsti>
 
@@ -684,7 +774,7 @@ The API returns the following status codes:
 ## 14) Demonstration of the API in action
 Somehow, you need to demonstrate how the API works, and that the API actually works. I leave this one to you. 
 
-# Demonstration of Finance Database API
+## Demonstration of Finance Database API
 
 This document demonstrates how to interact with the Finance Database API. We will use `curl` commands for simplicity, but these operations can also be performed using tools like Postman.
 
@@ -796,23 +886,50 @@ curl -X DELETE http://api.yourfinancedb.com/users/U123
 
 !["Nobody home"](nothere.png)
 
-## Extra Demonstration:
-
-* Screenshots: Include screenshots of the API requests and responses, especially if using a graphical tool like Postman.
-* Code Blocks: Use code blocks to clearly present curl commands or Python requests code snippets.
-* Narrative: Add explanatory text before each code snippet to guide the reader through what each step is doing.
-* Formatting: Use Quarto's formatting capabilities to make the document easy to read and navigate.
-* Error Handling: Demonstrate common errors and how the API handles them, including screenshots or code snippets of both the request and the API's response.
-
 ## 15) Links to source code
-This includes your DDL and DML SQL code. Your database should be able to be rebuilt from scratch using your DML and DDL.
 
-Here is a link to the part of the GitHub which contains the DDL: <https://github.com/cmsc-vcu/cmsc508-fa2023-prj-personal-financial-budgeting/blob/main/reports/deliver7-ddl.sql>
+Here is the link to the part of the GitHub which contains the DDL source code: 
+<https://github.com/cmsc-vcu/cmsc508-fa2023-prj-personal-financial-budgeting/blob/main/reports/deliver7-ddl.sql>
+
+Here is the link to the part of the GitHub which contains the API source code:
+<https://github.com/cmsc-vcu/cmsc508-fa2023-prj-personal-financial-budgeting/tree/main/api>
 
 ## 16) Future considerations
-What needs to be done next to take your project to the next level? If you had more time, what would you do next?
 
-If we had more time, the most usefull thing to add for users of this database would most likely be some form of front ent UI to make it easier for people to see their budgets/finances. Another thing to add might be an automatic way to view income and spending trends to help users plan for their future finances easier.
+For future developments, there are a couple of things that we would add for users who utilize the database. The most important one would be a front end UI to allow people to see finances in a better way. The following are a couple of other things that could be done in the future:
+
+### 1. User Interface Development
+Develop a user-friendly web application interface for intuitive interaction with the database.
+
+### 2. Enhanced Data Visualization
+Implement advanced data visualization tools, such as interactive charts and graphs, to understand the user's financial situation better.
+
+### 3. Machine Learning for Financial Insights
+Incorporate some sort of machine learning algorith to offer personalized financial advice and predictive analytics.
+
+### 4. Integration with Financial Institutions
+Automate data entry by integrating with banks for real-time transaction data feeds, seems a bit complicated, but would be super useful if we were to create an application for budgeting.
+
+### 5. Security Enhancements
+Enhance security features with robust encryption, having secure API endpoints, and implementing unique authentication mechanisms.
+
+### 6. User Customization and Settings
+Allow users to set personal financial goals, customize budget categories, and receive alerts on their personal phones.
+
+### 7. Utilizing a Mobile App for Responsiveness and Cross-Platform Compatibility
+Ensure the database behaves well with an application that is responsive and compatible across various devices and platforms.
+
+### 8. Scalability Improvements
+Optimize for scalability with cloud hosting solutions and efficient data processing algorithms.
+
+### 10. Compliance and Regulation
+Ensure compliance with financial regulations and data protection laws so all parties are safe when utilizing the services.
+
+### 11. Extended API Functionality
+Develop additional API endpoints for more features and third-party integrations to have a live service.
+
+### 12. User Feedback and Continuous Improvement
+Implement a system for collecting user feedback for ongoing application improvement to allow for error handling that we may not be able to catch ourselves.
 
 ## 17) Reflections on the overall project
 How did the project go? Did you achieve what you originally intended to build? If not, what kept you from achieving it?
