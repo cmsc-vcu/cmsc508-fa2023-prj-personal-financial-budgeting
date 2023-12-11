@@ -10,45 +10,61 @@ URL to previous pitch video:
 
 <https://vcu.zoom.us/rec/share/-nhA8wBIFG11yaFMcAL-boD81VZWKOAI2_CDKKjJjZZTUlzsKFVpvNFLB5OnkI53.XNolZw6VAD-LR4Go>
 
-Available Folders:
-- *./src* - to hold python/flask source code
-- *./reports* - to hold deliverable reports. Maintain a consistent naming convention for files, such as *deliver4.qmd*, *deliver5.qmd*, etc.
+---
+title: "Personal Budgeting Finance Database"
+format: 
+  html:
+    toc: true
+---
 
 ## Table of Contents
 - [Overview](#overview)
+- [Repository Structure](#repository-structure)
 - [Features](#features)
 - [Getting Started](#getting-started)
 - [Usage](#usage)
 - [Contributing](#contributing)
 
-## Overview
+# Overview
 
-Managing personal finances is essential for financial well-being. This project aims to provide a user-friendly and feature-rich database system that allows you to track income, expenses, savings, and investments. With this tool, you can gain better control over your financial situation.
+Managing personal finances is essential for financial well-being. This project provides a user-friendly and feature-rich database system for tracking income, expenses, savings, and investments. It aims to give you better control over your financial situation.
 
-This repository will be utilized for all our deliverables for the semester long project including deliverables 4 through 7.
+This repository contains all deliverables for our semester-long project, including Deliverables 4 through 7.
 
-## Features
+# Repository Structure
 
-- **Expense Tracking:** Record and categorize your expenses to understand where your money is going.
+- `./src`: Contains Python/Flask source code.
+- `./reports`: Holds deliverable reports. Files follow a consistent naming convention, e.g., `deliver4.qmd`, `deliver5.qmd`, etc.
+- `finance db.session.sql`: SQL session file for the database.
+- `poetry.lock`, `pyproject.toml`: Project dependencies and settings.
+- `.DS_Store`, `.gitignore`: System and git-related configurations.
+- `README.md`: This documentation file.
 
-- **Income Management:** Keep track of your various sources of income for a comprehensive financial overview.
+# Features
 
-- **Budget Planning:** Create and manage budgets to set spending limits and financial goals.
+- **Expense Tracking**: Record and categorize expenses.
+- **Income Management**: Track various income sources.
+- **Budget Planning**: Set spending limits and financial goals.
+- **Savings and Investments**: Monitor savings and investment accounts.
+- **Reports and Visualization**: Visualize financial data through reports and charts.
+- **User-Friendly Interface**: Intuitive use for all technical levels.
 
-- **Savings and Investments:** Monitor your savings and investment accounts to ensure your financial future is secure.
+# Getting Started
 
-- **Reports and Visualization:** Generate reports and charts to visualize your financial data for informed decision-making.
+1. **Clone the Repository**: 
+   ```bash
+   git clone https://github.com/cmsc-vcu/cmsc508-fa2023-prj-personal-financial-budgeting.git
+2. **Database Setup**:
+   Follow instructions in database-setup.md.
+3. **Installation**:
+   Install dependencies as per requirements.txt.
+4. **Configuration**:
+   Set application settings (database details, authentication).
 
-- **User-Friendly Interface:** An intuitive and easy-to-use interface for users of all levels of technical expertise.
-
-## Getting Started
-
-To get started with the Personal Budgeting Database, follow these steps:
-1. **Clone the Repository:** Clone this repository to your local machine using the following command: git clone https://github.com/cmsc-vcu/cmsc508-fa2023-prj-personal-financial-budgeting.git
-2. **Database Setup:** Set up the database according to the instructions provided in the `database-setup.md` file.
-3. **Installation:** Install any necessary dependencies or packages as specified in the `requirements.txt` file.
-4. **Configuration:** Configure the application settings as needed, such as database connection details and authentication.
-
+Available Folders:
+- *./src* - to hold python/flask source code
+- *./reports* - to hold deliverable reports. Maintain a consistent naming convention for files, such as *deliver4.qmd*, *deliver5.qmd*, etc.
+- 
 ## Usage
 
 1. Run the application by executing the main script or command provided in the project.
