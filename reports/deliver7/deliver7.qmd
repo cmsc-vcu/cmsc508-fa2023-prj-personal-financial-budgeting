@@ -331,7 +331,7 @@ Given the context, scope, and perspective, the team came up with 20 distinct que
 Sample data for each relation your design documented above
 
 Link to DDL code:
-- <https://github.com/cmsc-vcu/cmsc508-fa2023-prj-personal-financial-budgeting/blob/main/reports/deliver7-ddl.sql>
+- <https://github.com/cmsc-vcu/cmsc508-fa2023-prj-personal-financial-budgeting/blob/main/reports/deliver7/deliver7-ddl.sql>
 
 * User Relation:
 
@@ -988,11 +988,11 @@ curl -X DELETE http://api.yourfinancedb.com/users/U123
 
 Here is the link to the part of the GitHub which contains the DDL source code: 
 
-* <https://github.com/cmsc-vcu/cmsc508-fa2023-prj-personal-financial-budgeting/blob/main/reports/deliver7-ddl.sql>
+* <https://github.com/cmsc-vcu/cmsc508-fa2023-prj-personal-financial-budgeting/blob/main/reports/deliver7/deliver7-ddl.sql>
 
 Here is the link to the part of the GitHub which contains the API source code:
 
-* <https://github.com/cmsc-vcu/cmsc508-fa2023-prj-personal-financial-budgeting/tree/main/api>
+* <https://github.com/cmsc-vcu/cmsc508-fa2023-prj-personal-financial-budgeting/tree/main/src/api>
 
 ## 16) Future considerations
 
