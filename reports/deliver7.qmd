@@ -1,6 +1,6 @@
 ---
 title: Deliverable 7 - Database Implementation
-date: December 9th, 2023
+date: 12/11/2023
 author: Bryan Montecino & Corbin Nash
 format:
     html:
@@ -23,17 +23,14 @@ Access to the repository to see code and commits.
 1) Our project centers on developing a user-friendly database system that empowers individuals to take control of their personal finances, offering tools for income tracking, expense management and budget planning.
 
 2) A bulleted list of:
- * URL to your pitch video: 
-
-<https://vcu.zoom.us/rec/share/-nhA8wBIFG11yaFMcAL-boD81VZWKOAI2_CDKKjJjZZTUlzsKFVpvNFLB5OnkI53.XNolZw6VAD-LR4Go>
+ * URL to your pitch video:
+    - <https://vcu.zoom.us/rec/share/-nhA8wBIFG11yaFMcAL-boD81VZWKOAI2_CDKKjJjZZTUlzsKFVpvNFLB5OnkI53.XNolZw6VAD-LR4Go>
     
 * URL to your design video (Task 12): 
-   
-<https://vcu.zoom.us/rec/share/oCleWmpGURaTP66RLhkGcvkRuolHAeBSUXy7Iw0Mw0ZqyXja9pi2Ifq444VIk0V0.z9Rcgx_cklmfOsti>
+    - <https://vcu.zoom.us/rec/share/oCleWmpGURaTP66RLhkGcvkRuolHAeBSUXy7Iw0Mw0ZqyXja9pi2Ifq444VIk0V0.z9Rcgx_cklmfOsti>
    
 * URL to your GITHUB repository: 
-   
-<https://github.com/cmsc-vcu/cmsc508-fa2023-prj-personal-financial-budgeting/tree/main>
+    - <https://github.com/cmsc-vcu/cmsc508-fa2023-prj-personal-financial-budgeting/tree/main>
 
 # Problem description
 
@@ -334,7 +331,7 @@ Given the context, scope, and perspective, the team came up with 20 distinct que
 Sample data for each relation your design documented above
 
 Link to DDL code:
-<https://github.com/cmsc-vcu/cmsc508-fa2023-prj-personal-financial-budgeting/blob/main/reports/deliver7-ddl.sql>
+- <https://github.com/cmsc-vcu/cmsc508-fa2023-prj-personal-financial-budgeting/blob/main/reports/deliver7-ddl.sql>
 
 * User Relation:
 
@@ -537,8 +534,7 @@ gantt
 Summarizing the database design solution, discussion of any design tradeoffs, and reflections on the overall process.
 
 * URL link to Design Video 
-
-<https://vcu.zoom.us/rec/share/oCleWmpGURaTP66RLhkGcvkRuolHAeBSUXy7Iw0Mw0ZqyXja9pi2Ifq444VIk0V0.z9Rcgx_cklmfOsti>
+    - <https://vcu.zoom.us/rec/share/oCleWmpGURaTP66RLhkGcvkRuolHAeBSUXy7Iw0Mw0ZqyXja9pi2Ifq444VIk0V0.z9Rcgx_cklmfOsti>
 
 ```{python}
 #| eval: true
@@ -627,7 +623,7 @@ The following outlines the RESTful API for accessing and manipulating data in th
 ## Base URL
 
 The base URL for the API is:
-<http://api.yourfinancedb.com/>
+- <http://api.yourfinancedb.com/>
 
 
 This URL is the root address for all API requests.
@@ -889,10 +885,10 @@ curl -X DELETE http://api.yourfinancedb.com/users/U123
 ## 15) Links to source code
 
 Here is the link to the part of the GitHub which contains the DDL source code: 
-<https://github.com/cmsc-vcu/cmsc508-fa2023-prj-personal-financial-budgeting/blob/main/reports/deliver7-ddl.sql>
+- <https://github.com/cmsc-vcu/cmsc508-fa2023-prj-personal-financial-budgeting/blob/main/reports/deliver7-ddl.sql>
 
 Here is the link to the part of the GitHub which contains the API source code:
-<https://github.com/cmsc-vcu/cmsc508-fa2023-prj-personal-financial-budgeting/tree/main/api>
+- <https://github.com/cmsc-vcu/cmsc508-fa2023-prj-personal-financial-budgeting/tree/main/api>
 
 ## 16) Future considerations
 
@@ -932,6 +928,9 @@ Develop additional API endpoints for more features and third-party integrations 
 Implement a system for collecting user feedback for ongoing application improvement to allow for error handling that we may not be able to catch ourselves.
 
 ## 17) Reflections on the overall project
-How did the project go? Did you achieve what you originally intended to build? If not, what kept you from achieving it?
 
-The project went fairly well. We for the most part, we acheived what we intended to as of deliverable 4.
+The database project went fairly well! We were able to achieve our primary objectives. We managed to fully build an user-friendly database that allows users to manage their finances. The core functionalities including tracking income and expenses, budgeting, along with financial reporting were put into our project as intended. Our current project can be attributed to a well-organized project plan and brainstorming at the beginning of the semester, effective team collaboration and having a clear path to what the database needed. 
+
+Like any project, we faced challenges and learning curves along the way. One of the key things that allowed us to succeed in this project is having professor Leonard show us key concepts and how to implement them with Quarto Markdown. Having deadlines throughout the entire semester made this project come to a finished product in a smooth manner.
+
+In conclusion, while there were some deviations from our initial plan, the project was largely successful in achieving its main goals. The experience from this project, along with the course has left the group with not only a functional product but also with key learnings that will help us in the future whenever we need database knowledge and implementation.
