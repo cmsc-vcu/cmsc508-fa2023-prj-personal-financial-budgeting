@@ -7,7 +7,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Bryan Montecino &amp; Corbin Nash">
-<meta name="dcterms.date" content="2023-12-11">
 
 <title>Deliverable 7 - Database Implementation</title>
 <style>
@@ -3397,14 +3396,17 @@ color: #333;
   </ul></li>
   <li><a href="#database-design" id="toc-database-design" class="nav-link" data-scroll-target="#database-design">Database design</a>
   <ul class="collapse">
-  <li><a href="#entity-relationship-diagram-erd" id="toc-entity-relationship-diagram-erd" class="nav-link" data-scroll-target="#entity-relationship-diagram-erd">6) Entity-relationship diagram (ERD)</a></li>
+  <li><a href="#entity-relationship-diagram-erd" id="toc-entity-relationship-diagram-erd" class="nav-link" data-scroll-target="#entity-relationship-diagram-erd">6) Entity-relationship diagram (ERD)</a>
+  <ul class="collapse">
+  <li><a href="#crows-foot-notation" id="toc-crows-foot-notation" class="nav-link" data-scroll-target="#crows-foot-notation">Crow’s Foot Notation</a></li>
+  <li><a href="#chen-notation" id="toc-chen-notation" class="nav-link" data-scroll-target="#chen-notation">Chen Notation</a></li>
+  </ul></li>
   <li><a href="#relational-schemas" id="toc-relational-schemas" class="nav-link" data-scroll-target="#relational-schemas">7) Relational schemas</a></li>
   <li><a href="#functional-dependencies-and-normalization" id="toc-functional-dependencies-and-normalization" class="nav-link" data-scroll-target="#functional-dependencies-and-normalization">8) Functional Dependencies and Normalization</a></li>
   <li><a href="#specific-queries" id="toc-specific-queries" class="nav-link" data-scroll-target="#specific-queries">9) Specific queries</a></li>
   <li><a href="#sample-data" id="toc-sample-data" class="nav-link" data-scroll-target="#sample-data">10) Sample Data</a></li>
   <li><a href="#draft-project-schedule" id="toc-draft-project-schedule" class="nav-link" data-scroll-target="#draft-project-schedule">11) Draft Project schedule</a></li>
-  <li><a href="#video-presentation" id="toc-video-presentation" class="nav-link" data-scroll-target="#video-presentation">12) Video Presentation</a></li>
-  <li><a href="#api-definition" id="toc-api-definition" class="nav-link" data-scroll-target="#api-definition">13) API definition</a></li>
+  <li><a href="#api-definition" id="toc-api-definition" class="nav-link" data-scroll-target="#api-definition">12) API definition</a></li>
   <li><a href="#base-url" id="toc-base-url" class="nav-link" data-scroll-target="#base-url">Base URL</a></li>
   <li><a href="#authentication" id="toc-authentication" class="nav-link" data-scroll-target="#authentication">Authentication</a></li>
   <li><a href="#endpoints" id="toc-endpoints" class="nav-link" data-scroll-target="#endpoints">Endpoints</a>
@@ -3415,7 +3417,7 @@ color: #333;
   <li><a href="#transactions" id="toc-transactions" class="nav-link" data-scroll-target="#transactions">Transactions</a></li>
   </ul></li>
   <li><a href="#status-codes" id="toc-status-codes" class="nav-link" data-scroll-target="#status-codes">Status Codes</a></li>
-  <li><a href="#demonstration-of-the-api-in-action" id="toc-demonstration-of-the-api-in-action" class="nav-link" data-scroll-target="#demonstration-of-the-api-in-action">14) Demonstration of the API in action</a></li>
+  <li><a href="#demonstration-of-the-api-in-action" id="toc-demonstration-of-the-api-in-action" class="nav-link" data-scroll-target="#demonstration-of-the-api-in-action">13) Demonstration of the API in action</a></li>
   <li><a href="#demonstration-of-finance-database-api" id="toc-demonstration-of-finance-database-api" class="nav-link" data-scroll-target="#demonstration-of-finance-database-api">Demonstration of Finance Database API</a></li>
   <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
   <li><a href="#create-a-new-user-1" id="toc-create-a-new-user-1" class="nav-link" data-scroll-target="#create-a-new-user-1">Create a New User</a>
@@ -3448,8 +3450,8 @@ color: #333;
   <li><a href="#expected-response-4" id="toc-expected-response-4" class="nav-link" data-scroll-target="#expected-response-4">Expected Response</a></li>
   <li><a href="#postman-response-4" id="toc-postman-response-4" class="nav-link" data-scroll-target="#postman-response-4">Postman Response</a></li>
   </ul></li>
-  <li><a href="#links-to-source-code" id="toc-links-to-source-code" class="nav-link" data-scroll-target="#links-to-source-code">15) Links to source code</a></li>
-  <li><a href="#future-considerations" id="toc-future-considerations" class="nav-link" data-scroll-target="#future-considerations">16) Future considerations</a>
+  <li><a href="#links-to-source-code" id="toc-links-to-source-code" class="nav-link" data-scroll-target="#links-to-source-code">14) Links to source code</a></li>
+  <li><a href="#future-considerations" id="toc-future-considerations" class="nav-link" data-scroll-target="#future-considerations">15) Future considerations</a>
   <ul class="collapse">
   <li><a href="#user-interface-development" id="toc-user-interface-development" class="nav-link" data-scroll-target="#user-interface-development">1. User Interface Development</a></li>
   <li><a href="#enhanced-data-visualization" id="toc-enhanced-data-visualization" class="nav-link" data-scroll-target="#enhanced-data-visualization">2. Enhanced Data Visualization</a></li>
@@ -3463,7 +3465,6 @@ color: #333;
   <li><a href="#extended-api-functionality" id="toc-extended-api-functionality" class="nav-link" data-scroll-target="#extended-api-functionality">11. Extended API Functionality</a></li>
   <li><a href="#user-feedback-and-continuous-improvement" id="toc-user-feedback-and-continuous-improvement" class="nav-link" data-scroll-target="#user-feedback-and-continuous-improvement">12. User Feedback and Continuous Improvement</a></li>
   </ul></li>
-  <li><a href="#reflections-on-the-overall-project" id="toc-reflections-on-the-overall-project" class="nav-link" data-scroll-target="#reflections-on-the-overall-project">17) Reflections on the overall project</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -3486,12 +3487,6 @@ color: #333;
           </div>
   </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">December 11, 2023</p>
-    </div>
-  </div>
   
     
   </div>
@@ -3509,23 +3504,8 @@ color: #333;
 <section id="project-overview-and-key-deliverables" class="level1">
 <h1>Project overview and key deliverables</h1>
 <ol type="1">
-<li><p>Our project centers on developing a user-friendly database system that empowers individuals to take control of their personal finances, offering tools for income tracking, expense management and budget planning.</p></li>
-<li><p>A bulleted list of:</p></li>
+<li>Our project centers on developing a user-friendly database system that empowers individuals to take control of their personal finances, offering tools for income tracking, expense management and budget planning.</li>
 </ol>
-<ul>
-<li>URL to your pitch video:
-<ul>
-<li><a href="https://vcu.zoom.us/rec/share/-nhA8wBIFG11yaFMcAL-boD81VZWKOAI2_CDKKjJjZZTUlzsKFVpvNFLB5OnkI53.XNolZw6VAD-LR4Go" class="uri">https://vcu.zoom.us/rec/share/-nhA8wBIFG11yaFMcAL-boD81VZWKOAI2_CDKKjJjZZTUlzsKFVpvNFLB5OnkI53.XNolZw6VAD-LR4Go</a></li>
-</ul></li>
-<li>URL to your design video (Task 12):
-<ul>
-<li><a href="https://vcu.zoom.us/rec/share/oCleWmpGURaTP66RLhkGcvkRuolHAeBSUXy7Iw0Mw0ZqyXja9pi2Ifq444VIk0V0.z9Rcgx_cklmfOsti" class="uri">https://vcu.zoom.us/rec/share/oCleWmpGURaTP66RLhkGcvkRuolHAeBSUXy7Iw0Mw0ZqyXja9pi2Ifq444VIk0V0.z9Rcgx_cklmfOsti</a></li>
-</ul></li>
-<li>URL to your GITHUB repository:
-<ul>
-<li><a href="https://github.com/cmsc-vcu/cmsc508-fa2023-prj-personal-financial-budgeting/tree/main" class="uri">https://github.com/cmsc-vcu/cmsc508-fa2023-prj-personal-financial-budgeting/tree/main</a></li>
-</ul></li>
-</ul>
 </section>
 <section id="problem-description" class="level1">
 <h1>Problem description</h1>
@@ -3651,6 +3631,8 @@ Segregate financial data, ensuring that users can only access their own data. Th
 <h1>Database design</h1>
 <section id="entity-relationship-diagram-erd" class="level2">
 <h2 class="anchored" data-anchor-id="entity-relationship-diagram-erd">6) Entity-relationship diagram (ERD)</h2>
+<section id="crows-foot-notation" class="level3">
+<h3 class="anchored" data-anchor-id="crows-foot-notation">Crow’s Foot Notation</h3>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -3810,6 +3792,9 @@ Transaction–creates
 </div>
 </div>
 </div>
+</section>
+<section id="chen-notation" class="level3">
+<h3 class="anchored" data-anchor-id="chen-notation">Chen Notation</h3>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -3853,11 +3838,9 @@ string date
 </div>
 </div>
 <section id="relationship-of-user-to-budget-1many" class="level4">
-<h4 class="anchored" data-anchor-id="relationship-of-user-to-budget-1many">Relationship of User to Budget: 1:many</h4>
+<h4 class="anchored" data-anchor-id="relationship-of-user-to-budget-1many">Relationship of User to Budget = 1:many</h4>
 <p>Having the User - Budget relation be a <em>1:many</em> relationship means that if a group were to use this database to manage expenses, they would need to be under a shared user.</p>
-<ul>
-<li>This means there would be no way to tell which member of the group created each transaction. This does however simplify the database, and as this is a personal budget manager, I would consider a group using the database outside the scope of our current project.</li>
-</ul>
+</section>
 </section>
 </section>
 <section id="relational-schemas" class="level2">
@@ -4154,91 +4137,6 @@ This transaction also has no FDs and is already in BCNF with a primary key of Ac
 <li>What is the average number of the other sources</li>
 <li>How large is the difference between my current budget and my actual</li>
 </ol>
-<section id="queries-with-relational-algebra" class="level4">
-<h4 class="anchored" data-anchor-id="queries-with-relational-algebra">Queries with relational algebra:</h4>
-<ol type="1">
-<li><strong>Query 1:</strong> Retrieve User’s Budgets
-<ul>
-<li><code>π budget (σ userID = &#39;U1&#39;, User)</code></li>
-</ul></li>
-<li><strong>Query 2:</strong> List All Transactions for a Specific User
-<ul>
-<li><code>π transaction (σ userID = &#39;U3&#39;, User)</code></li>
-</ul></li>
-<li><strong>Query 3:</strong> Calculate Total Price/Gain for a Budget
-<ul>
-<li><code>∑ price/gain (σ BudgetID = &#39;B2&#39;, Budget)</code></li>
-</ul></li>
-<li><strong>Query 4:</strong> Compare Budgeted vs. Actual Expenses for a Specific Budget
-<ul>
-<li><code>π budgetID, Source, Price/Gain, Actual (σ BudgetID = &#39;B4&#39;, Budget)</code></li>
-</ul></li>
-<li><strong>Query 5:</strong> Find Transactions Above a Certain Amount for a User
-<ul>
-<li><code>π transaction, price/gain (σ userID = &#39;U2&#39; ∧ price/gain &gt; 100, User ⨝ Transaction)</code></li>
-</ul></li>
-<li><strong>Query 6:</strong> Retrieve Budgets with Specific Time Periods
-<ul>
-<li><code>π BudgetID, TimePeriod (σ TimePeriod = &#39;2 months&#39;, Budget)</code></li>
-</ul></li>
-<li><strong>Query 7:</strong> Determine Total Income for a User in a Year
-<ul>
-<li><code>∑ price/gain (σ userID = &#39;U4&#39; ∧ EXTRACT(Year FROM Date) = 2023, Transaction)</code></li>
-</ul></li>
-<li><strong>Query 8:</strong> Find Largest Expense Category in a Budget
-<ul>
-<li><code>MAX(price/gain) (σ BudgetID = &#39;B1&#39; ∧ source IN { &#39;Entertainment&#39;, &#39;Transportation&#39;, &#39;Necessities&#39;, &#39;Medical&#39;, &#39;Job&#39;, &#39;Gifts&#39;, &#39;Side Hustle&#39;, &#39;Other&#39; }, Budget)</code></li>
-</ul></li>
-<li><strong>Query 9:</strong> Retrieve Transactions from a Specific Date for a User
-<ul>
-<li><code>π transaction, Date (σ userID = &#39;U5&#39; ∧ Date = &#39;2023-10-17&#39;, User ⨝ Transaction)</code></li>
-</ul></li>
-<li><strong>Query 10:</strong> List Transactions Categorized as ‘Entertainment’ for a User
-<ul>
-<li><code>π transaction, source (σ userID = &#39;U1&#39; ∧ source = &#39;Entertainment&#39;, User ⨝ Transaction)</code></li>
-</ul></li>
-<li><strong>Query 11:</strong> Calculate Average Monthly Income for a User
-<ul>
-<li><code>AVG(price/gain) (σ userID = &#39;U3&#39; ∧ EXTRACT(Month FROM Date) = 10, Transaction)</code></li>
-</ul></li>
-<li><strong>Query 12:</strong> Retrieve Transactions Below a Certain Amount in a Budget
-<ul>
-<li><code>π transaction, price/gain (σ BudgetID = &#39;B6&#39; ∧ price/gain &lt; 200, Budget ⨝ Transaction)</code></li>
-</ul></li>
-<li><strong>Query 13:</strong> Find Budgets Exceeded by Actual Expenses for a User
-<ul>
-<li><code>π BudgetID, Source (σ userID = &#39;U2&#39; ∧ Price/Gain &lt; Actual, Budget)</code></li>
-</ul></li>
-<li><strong>Query 14:</strong> Retrieve Financial Advisor’s Clients
-<ul>
-<li><code>π name (σ advisorID IS NOT NULL, User)</code></li>
-</ul></li>
-<li><strong>Query 15:</strong> Calculate Total Expenses by Transaction Category for a User
-<ul>
-<li><code>∑ price/gain (σ userID = &#39;U3&#39; ∧ source IN { &#39;Entertainment&#39;, &#39;Transportation&#39;, &#39;Necessities&#39;, &#39;Medical&#39;, &#39;Job&#39;, &#39;Gifts&#39;, &#39;Side Hustle&#39;, &#39;Other&#39; }, Transaction)</code></li>
-</ul></li>
-<li><strong>Query 16:</strong> Retrieve All Transactions from a Specific Bank for a User
-<ul>
-<li><code>π transaction, source (σ userID = &#39;U4&#39; ∧ source = &#39;Bank&#39;, User ⨝ Transaction)</code></li>
-</ul></li>
-<li><strong>Query 17:</strong> List Transactions Made on a Specific Date for a User
-<ul>
-<li><code>π transaction, Date (σ userID = &#39;U1&#39; ∧ Date = &#39;2023-10-03&#39;, User ⨝ Transaction)</code></li>
-</ul></li>
-<li><strong>Query 18:</strong> Retrieve Monthly Expenses in Excess of Budget for a User
-<ul>
-<li><code>π budgetID, Price/Gain, Actual (σ userID = &#39;U2&#39; ∧ EXTRACT(Month FROM Date) = 10, Budget ⨝ Transaction)</code></li>
-</ul></li>
-<li><strong>Query 19:</strong> Calculate Average Monthly Expense for a User
-<ul>
-<li><code>AVG(price/gain) (σ userID = &#39;U5&#39; ∧ EXTRACT(Month FROM Date) = 10, Transaction)</code></li>
-</ul></li>
-<li><strong>Query 20:</strong> Retrieve Transaction History from a Specific Bank for a User
-<ul>
-<li><code>π transaction, Date (σ userID = &#39;U4&#39; ∧ source = &#39;Bank&#39;, User ⨝ Transaction)</code></li>
-</ul></li>
-</ol>
-</section>
 </section>
 <section id="sample-data" class="level2">
 <h2 class="anchored" data-anchor-id="sample-data">10) Sample Data</h2>
@@ -5240,18 +5138,8 @@ This transaction also has no FDs and is already in BCNF with a primary key of Ac
 </div>
 </div>
 </section>
-<section id="video-presentation" class="level2">
-<h2 class="anchored" data-anchor-id="video-presentation">12) Video Presentation</h2>
-<p>Summarizing the database design solution, discussion of any design tradeoffs, and reflections on the overall process.</p>
-<ul>
-<li>URL link to Design Video
-<ul>
-<li><a href="https://vcu.zoom.us/rec/share/oCleWmpGURaTP66RLhkGcvkRuolHAeBSUXy7Iw0Mw0ZqyXja9pi2Ifq444VIk0V0.z9Rcgx_cklmfOsti" class="uri">https://vcu.zoom.us/rec/share/oCleWmpGURaTP66RLhkGcvkRuolHAeBSUXy7Iw0Mw0ZqyXja9pi2Ifq444VIk0V0.z9Rcgx_cklmfOsti</a></li>
-</ul></li>
-</ul>
-</section>
 <section id="api-definition" class="level2">
-<h2 class="anchored" data-anchor-id="api-definition">13) API definition</h2>
+<h2 class="anchored" data-anchor-id="api-definition">12) API definition</h2>
 <p>Database is to be accessible from the server through a RESTful API. What is your API definition? What are the various ways to get data? This should be documented so that someone wanting to leverage your database can understand how to access it.</p>
 <p>The following outlines the RESTful API for accessing and manipulating data in the Finance Database.</p>
 <ul>
@@ -5458,7 +5346,7 @@ This transaction also has no FDs and is already in BCNF with a primary key of Ac
 </ul>
 </section>
 <section id="demonstration-of-the-api-in-action" class="level2">
-<h2 class="anchored" data-anchor-id="demonstration-of-the-api-in-action">14) Demonstration of the API in action</h2>
+<h2 class="anchored" data-anchor-id="demonstration-of-the-api-in-action">13) Demonstration of the API in action</h2>
 <p>Here are the following endpoints for the database API:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">### User Endpoints</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">&#39;/login&#39;</span>, methods<span class="op">=</span>[<span class="st">&#39;POST&#39;</span>])</span>
@@ -5731,7 +5619,7 @@ This transaction also has no FDs and is already in BCNF with a primary key of Ac
 </section>
 </section>
 <section id="links-to-source-code" class="level2">
-<h2 class="anchored" data-anchor-id="links-to-source-code">15) Links to source code</h2>
+<h2 class="anchored" data-anchor-id="links-to-source-code">14) Links to source code</h2>
 <p>Here is the link to the part of the GitHub which contains the DDL source code:</p>
 <ul>
 <li><a href="https://github.com/cmsc-vcu/cmsc508-fa2023-prj-personal-financial-budgeting/blob/main/reports/deliver7/deliver7-ddl.sql" class="uri">https://github.com/cmsc-vcu/cmsc508-fa2023-prj-personal-financial-budgeting/blob/main/reports/deliver7/deliver7-ddl.sql</a></li>
@@ -5742,7 +5630,7 @@ This transaction also has no FDs and is already in BCNF with a primary key of Ac
 </ul>
 </section>
 <section id="future-considerations" class="level2">
-<h2 class="anchored" data-anchor-id="future-considerations">16) Future considerations</h2>
+<h2 class="anchored" data-anchor-id="future-considerations">15) Future considerations</h2>
 <p>For future developments, there are a couple of things that we would add for users who utilize the database. The most important one would be a front end UI to allow people to see finances in a better way. The following are a couple of other things that could be done in the future:</p>
 <section id="user-interface-development" class="level3">
 <h3 class="anchored" data-anchor-id="user-interface-development">1. User Interface Development</h3>
@@ -5788,12 +5676,6 @@ This transaction also has no FDs and is already in BCNF with a primary key of Ac
 <h3 class="anchored" data-anchor-id="user-feedback-and-continuous-improvement">12. User Feedback and Continuous Improvement</h3>
 <p>Implement a system for collecting user feedback for ongoing application improvement to allow for error handling that we may not be able to catch ourselves.</p>
 </section>
-</section>
-<section id="reflections-on-the-overall-project" class="level2">
-<h2 class="anchored" data-anchor-id="reflections-on-the-overall-project">17) Reflections on the overall project</h2>
-<p>The database project went fairly well! We were able to achieve our primary objectives. We managed to fully build an user-friendly database that allows users to manage their finances. The core functionalities including tracking income and expenses, budgeting, along with financial reporting were put into our project as intended. Our current project can be attributed to a well-organized project plan and brainstorming at the beginning of the semester, effective team collaboration and having a clear path to what the database needed.</p>
-<p>Like any project, we faced challenges and learning curves along the way. One of the key things that allowed us to succeed in this project is having professor Leonard show us key concepts and how to implement them with Quarto Markdown. Having deadlines throughout the entire semester made this project come to a finished product in a smooth manner.</p>
-<p>In conclusion, while there were some deviations from our initial plan, the project was largely successful in achieving its main goals. The experience from this project, along with the course has left the group with not only a functional product but also with key learnings that will help us in the future whenever we need database knowledge and implementation.</p>
 </section>
 </section>
 

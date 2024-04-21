@@ -6,17 +6,6 @@ Welcome to the Personal Budgeting Database repository! This project is a semeste
 - Bryan Lizama Montecino
 - Corbin Allen Nash
 
-URL to previous pitch video:
-
-<https://vcu.zoom.us/rec/share/-nhA8wBIFG11yaFMcAL-boD81VZWKOAI2_CDKKjJjZZTUlzsKFVpvNFLB5OnkI53.XNolZw6VAD-LR4Go>
-
----
-title: "Personal Budgeting Finance Database"
-format: 
-  html:
-    toc: true
----
-
 ## Table of Contents
 - [Overview](#overview)
 - [Repository Structure](#repository-structure)

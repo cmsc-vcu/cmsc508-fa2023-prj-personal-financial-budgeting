@@ -1,6 +1,5 @@
 ---
 title: Deliverable 7 - Database Implementation
-date: 12/11/2023
 author: Bryan Montecino & Corbin Nash
 format:
     html:
@@ -21,16 +20,6 @@ Access to the repository to see code and commits.
 # Project overview and key deliverables
 
 1) Our project centers on developing a user-friendly database system that empowers individuals to take control of their personal finances, offering tools for income tracking, expense management and budget planning.
-
-2) A bulleted list of:
- * URL to your pitch video:
-    - <https://vcu.zoom.us/rec/share/-nhA8wBIFG11yaFMcAL-boD81VZWKOAI2_CDKKjJjZZTUlzsKFVpvNFLB5OnkI53.XNolZw6VAD-LR4Go>
-    
-* URL to your design video (Task 12): 
-    - <https://vcu.zoom.us/rec/share/oCleWmpGURaTP66RLhkGcvkRuolHAeBSUXy7Iw0Mw0ZqyXja9pi2Ifq444VIk0V0.z9Rcgx_cklmfOsti>
-   
-* URL to your GITHUB repository: 
-    - <https://github.com/cmsc-vcu/cmsc508-fa2023-prj-personal-financial-budgeting/tree/main>
 
 # Problem description
 
@@ -61,12 +50,14 @@ Use Cases
 
 #### Administrator
 Needs
-: * Manage the technical aspects of the database.
+: 
+* Manage the technical aspects of the database.
 * Monitor system performance.
 * Ensure data security and compliance.
 
 Use Cases
-: * Perform routine database maintenance and backup tasks.
+: 
+* Perform routine database maintenance and backup tasks.
 * Monitor system performance and address any technical issues.
 * Manage user access and permissions.
 * Ensure data privacy and security compliance
@@ -113,6 +104,8 @@ Password Policies: Enforce strong password policies, regular password changes an
 # Database design
 
 ## 6) Entity-relationship diagram (ERD) 
+
+### Crow's Foot Notation
 ```{dot}
 graph ER {
     layout=neato;
@@ -145,6 +138,7 @@ graph ER {
 }
 ```
 
+### Chen Notation
 ```{mermaid}
 erDiagram
 USER ||--|| BUDGET: MANAGES
@@ -181,10 +175,8 @@ string date
 }
 ```
 
-#### Relationship of User to Budget: 1:many
+#### Relationship of User to Budget = 1:many
 Having the User - Budget relation be a *1:many* relationship means that if a group were to use this database to manage expenses, they would need to be under a shared user. 
-
-* This means there would be no way to tell which member of the group created each transaction. This does however simplify the database, and as this is a personal budget manager, I would consider a group using the database outside the scope of our current project.
 
 ## 7) Relational schemas
 Listing of relations, their attributes, types, domain, and constraints, identification of the primary key and foreign keys and other constraints.
@@ -264,68 +256,6 @@ Given the context, scope, and perspective, the team came up with 20 distinct que
 18) How many monetary gifts did I receive this past holiday season
 19) What is the average number of the other sources
 20) How large is the difference between my current budget and my actual
-
-#### Queries with relational algebra:
-
-1. **Query 1:** Retrieve User's Budgets
-   - `π budget (σ userID = 'U1', User)`
-
-2. **Query 2:** List All Transactions for a Specific User
-   - `π transaction (σ userID = 'U3', User)`
-
-3. **Query 3:** Calculate Total Price/Gain for a Budget
-   - `∑ price/gain (σ BudgetID = 'B2', Budget)`
-
-4. **Query 4:** Compare Budgeted vs. Actual Expenses for a Specific Budget
-   - `π budgetID, Source, Price/Gain, Actual (σ BudgetID = 'B4', Budget)`
-
-5. **Query 5:** Find Transactions Above a Certain Amount for a User
-   - `π transaction, price/gain (σ userID = 'U2' ∧ price/gain > 100, User ⨝ Transaction)`
-
-6. **Query 6:** Retrieve Budgets with Specific Time Periods
-   - `π BudgetID, TimePeriod (σ TimePeriod = '2 months', Budget)`
-
-7. **Query 7:** Determine Total Income for a User in a Year
-   - `∑ price/gain (σ userID = 'U4' ∧ EXTRACT(Year FROM Date) = 2023, Transaction)`
-
-8. **Query 8:** Find Largest Expense Category in a Budget
-   - `MAX(price/gain) (σ BudgetID = 'B1' ∧ source IN { 'Entertainment', 'Transportation', 'Necessities', 'Medical', 'Job', 'Gifts', 'Side Hustle', 'Other' }, Budget)`
-
-9. **Query 9:** Retrieve Transactions from a Specific Date for a User
-   - `π transaction, Date (σ userID = 'U5' ∧ Date = '2023-10-17', User ⨝ Transaction)`
-
-10. **Query 10:** List Transactions Categorized as 'Entertainment' for a User
-    - `π transaction, source (σ userID = 'U1' ∧ source = 'Entertainment', User ⨝ Transaction)`
-
-11. **Query 11:** Calculate Average Monthly Income for a User
-    - `AVG(price/gain) (σ userID = 'U3' ∧ EXTRACT(Month FROM Date) = 10, Transaction)`
-
-12. **Query 12:** Retrieve Transactions Below a Certain Amount in a Budget
-    - `π transaction, price/gain (σ BudgetID = 'B6' ∧ price/gain < 200, Budget ⨝ Transaction)`
-
-13. **Query 13:** Find Budgets Exceeded by Actual Expenses for a User
-    - `π BudgetID, Source (σ userID = 'U2' ∧ Price/Gain < Actual, Budget)`
-
-14. **Query 14:** Retrieve Financial Advisor's Clients
-    - `π name (σ advisorID IS NOT NULL, User)`
-
-15. **Query 15:** Calculate Total Expenses by Transaction Category for a User
-    - `∑ price/gain (σ userID = 'U3' ∧ source IN { 'Entertainment', 'Transportation', 'Necessities', 'Medical', 'Job', 'Gifts', 'Side Hustle', 'Other' }, Transaction)`
-
-16. **Query 16:** Retrieve All Transactions from a Specific Bank for a User
-    - `π transaction, source (σ userID = 'U4' ∧ source = 'Bank', User ⨝ Transaction)`
-
-17. **Query 17:** List Transactions Made on a Specific Date for a User
-    - `π transaction, Date (σ userID = 'U1' ∧ Date = '2023-10-03', User ⨝ Transaction)`
-
-18. **Query 18:** Retrieve Monthly Expenses in Excess of Budget for a User
-    - `π budgetID, Price/Gain, Actual (σ userID = 'U2' ∧ EXTRACT(Month FROM Date) = 10, Budget ⨝ Transaction)`
-
-19. **Query 19:** Calculate Average Monthly Expense for a User
-    - `AVG(price/gain) (σ userID = 'U5' ∧ EXTRACT(Month FROM Date) = 10, Transaction)`
-
-20. **Query 20:** Retrieve Transaction History from a Specific Bank for a User
-    - `π transaction, Date (σ userID = 'U4' ∧ source = 'Bank', User ⨝ Transaction)`
 
 ## 10) Sample Data
 Sample data for each relation your design documented above
@@ -530,90 +460,7 @@ gantt
   Final milestone:active, milestone, m1, 2023-12-13, 2m
 ```
 
-## 12) Video Presentation
-Summarizing the database design solution, discussion of any design tradeoffs, and reflections on the overall process.
-
-* URL link to Design Video 
-    - <https://vcu.zoom.us/rec/share/oCleWmpGURaTP66RLhkGcvkRuolHAeBSUXy7Iw0Mw0ZqyXja9pi2Ifq444VIk0V0.z9Rcgx_cklmfOsti>
-
-```{python}
-#| eval: true
-#| echo: false
-import os
-import sys
-import pandas as pd
-from tabulate import tabulate
-from dotenv import load_dotenv
-from sqlalchemy import create_engine, text
-from sqlalchemy.exc import OperationalError, ProgrammingError
-from IPython.display import display, Markdown
-```
-
-```{python}
-#| eval: true
-#| echo: false
-
-# modify config_map to reflect credentials needed by this program
-config_map = {
-    'user':'BUDGET_USER',
-    'password':'BUDGET_PASSWORD',
-    'host':'BUDGET_HOST',
-    'database':'BUDGET_DB_NAME'
-}
-# load and store credentials
-load_dotenv()
-config = {}
-for key in config_map.keys():
-    config[key] = os.getenv(config_map[key]).strip()
-flag = False
-for param in config.keys():
-    if config[param] is None:
-        flag = True
-        print(f"Missing {config_map[param]} in .env file")
-#if flag:
-#    sys.exit(1)
-```
-
-```{python}
-#| eval: true
-#| echo: false
-
-# build a sqlalchemy engine string
-engine_uri = f"mysql+pymysql://{config['user']}:{config['password']}@{config['host']}/{config['database']}"
-
-# create a database connection.
-try:
-    cnx = create_engine(engine_uri)
-except ArgumentError as e:
-    print(f"create_engine: Argument Error: {e}")
-    #sys.exit(1)
-except NoSuchModuleError as e:
-    print(f"create_engine: No Such Module Error: {e}")
-    #sys.exit(1)
-except Exception as e:
-    print(f"create_engine: An error occurred: {e}")
-    #sys.exit(1)
-```
-
-```{python}
-#| echo: false
-#| eval: true
-
-# !
-try:
-    databases = pd.read_sql("show databases",cnx)
-except ImportError as e:
-    print(f"Error: {e}")
-except OperationalError as e:
-    print(f"Database/SQL Error:\n{str(e)}\n")
-except ProgrammingError as e:
-    print(f"Programming Error:\n{str(e)}\n")
-except Exception as e:
-    print(f"An error occurred:\n{str(e)}\n")
-
-```
-
-## 13) API definition
+## 12) API definition
 Database is to be accessible from the server through a RESTful API. What is your API definition? What are the various ways to get data? This should be documented so that someone wanting to leverage your database can understand how to access it.
 
 The following outlines the RESTful API for accessing and manipulating data in the Finance Database. 
@@ -767,7 +614,7 @@ The API returns the following status codes:
 - `404 Not Found`: The requested resource could not be found.
 - `500 Internal Server Error`: A generic error occurred on the server.
 
-## 14) Demonstration of the API in action
+## 13) Demonstration of the API in action
 
 Here are the following endpoints for the database API:
 ```python
@@ -1020,7 +867,7 @@ curl -X DELETE http://api.yourfinancedb.com/users/U123
 
 !["Nobody home"](nothere.png)
 
-## 15) Links to source code
+## 14) Links to source code
 
 Here is the link to the part of the GitHub which contains the DDL source code: 
 
@@ -1030,7 +877,7 @@ Here is the link to the part of the GitHub which contains the API source code:
 
 * <https://github.com/cmsc-vcu/cmsc508-fa2023-prj-personal-financial-budgeting/tree/main/src/api>
 
-## 16) Future considerations
+## 15) Future considerations
 
 For future developments, there are a couple of things that we would add for users who utilize the database. The most important one would be a front end UI to allow people to see finances in a better way. The following are a couple of other things that could be done in the future:
 
@@ -1066,11 +913,3 @@ Develop additional API endpoints for more features and third-party integrations 
 
 ### 12. User Feedback and Continuous Improvement
 Implement a system for collecting user feedback for ongoing application improvement to allow for error handling that we may not be able to catch ourselves.
-
-## 17) Reflections on the overall project
-
-The database project went fairly well! We were able to achieve our primary objectives. We managed to fully build an user-friendly database that allows users to manage their finances. The core functionalities including tracking income and expenses, budgeting, along with financial reporting were put into our project as intended. Our current project can be attributed to a well-organized project plan and brainstorming at the beginning of the semester, effective team collaboration and having a clear path to what the database needed. 
-
-Like any project, we faced challenges and learning curves along the way. One of the key things that allowed us to succeed in this project is having professor Leonard show us key concepts and how to implement them with Quarto Markdown. Having deadlines throughout the entire semester made this project come to a finished product in a smooth manner.
-
-In conclusion, while there were some deviations from our initial plan, the project was largely successful in achieving its main goals. The experience from this project, along with the course has left the group with not only a functional product but also with key learnings that will help us in the future whenever we need database knowledge and implementation.

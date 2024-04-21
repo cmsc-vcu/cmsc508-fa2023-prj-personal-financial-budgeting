@@ -1,6 +1,5 @@
 ---
 title: Deliverable 4 - Database Design (Phase 1)
-date: October 15, 2023
 author: Bryan Montecino & Corbin Nash
 format:
     html:
@@ -21,10 +20,6 @@ Access to the repository to see code and commits.
 # Project overview and key deliverables
 
 1) Our project centers on developing a user-friendly database system that empowers individuals to take control of their personal finances, offering tools for income tracking, expense management and budget planning.
-2) A bulleted list of:
-    * URL to your pitch video: <https://vcu.zoom.us/rec/share/-nhA8wBIFG11yaFMcAL-boD81VZWKOAI2_CDKKjJjZZTUlzsKFVpvNFLB5OnkI53.XNolZw6VAD-LR4Go>
-    * URL to your design video (Task 12): <https://vcu.zoom.us/rec/share/oCleWmpGURaTP66RLhkGcvkRuolHAeBSUXy7Iw0Mw0ZqyXja9pi2Ifq444VIk0V0.z9Rcgx_cklmfOsti>
-    * URL to your GITHUB repository: <https://github.com/cmsc-vcu/cmsc508-fa2023-prj-personal-financial-budgeting/tree/main>
 
 # Problem description
 
