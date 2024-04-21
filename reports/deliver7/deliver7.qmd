@@ -21,6 +21,16 @@ Access to the repository to see code and commits.
 
 1) Our project centers on developing a user-friendly database system that empowers individuals to take control of their personal finances, offering tools for income tracking, expense management and budget planning.
 
+2) A bulleted list of:
+ * URL to your pitch video:
+    - <https://vcu.zoom.us/rec/share/-nhA8wBIFG11yaFMcAL-boD81VZWKOAI2_CDKKjJjZZTUlzsKFVpvNFLB5OnkI53.XNolZw6VAD-LR4Go>
+    
+* URL to your design video (Task 12): 
+    - <https://vcu.zoom.us/rec/share/oCleWmpGURaTP66RLhkGcvkRuolHAeBSUXy7Iw0Mw0ZqyXja9pi2Ifq444VIk0V0.z9Rcgx_cklmfOsti>
+   
+* URL to your final video: 
+    - <https://vcu.zoom.us/rec/share/xufhZaUc0HfOvpzIn9pOKz96TGrChFRbQCvIpL5nn_wIdeCkQFkonEyql1puTgM6.ValePfV8Ve7BNsTW?startTime=1702345299000>
+
 # Problem description
 
 ## 1) Problem domain 
