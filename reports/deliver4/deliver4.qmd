@@ -6,9 +6,6 @@ format:
         theme: pulse
         toc: true
         embed-resources: true
-#
-# To change themes, see: https://quarto.org/docs/output-formats/html-themes.html
-#
 ---
 
 # GitHub Repository

@@ -19,17 +19,7 @@ Access to the repository to see code and commits.
 
 # Project overview and key deliverables
 
-1) Our project centers on developing a user-friendly database system that empowers individuals to take control of their personal finances, offering tools for income tracking, expense management and budget planning.
-
-2) A bulleted list of:
- * URL to your pitch video:
-    - <https://vcu.zoom.us/rec/share/-nhA8wBIFG11yaFMcAL-boD81VZWKOAI2_CDKKjJjZZTUlzsKFVpvNFLB5OnkI53.XNolZw6VAD-LR4Go>
-    
-* URL to your design video (Task 12): 
-    - <https://vcu.zoom.us/rec/share/oCleWmpGURaTP66RLhkGcvkRuolHAeBSUXy7Iw0Mw0ZqyXja9pi2Ifq444VIk0V0.z9Rcgx_cklmfOsti>
-   
-* URL to your final video: 
-    - <https://vcu.zoom.us/rec/share/xufhZaUc0HfOvpzIn9pOKz96TGrChFRbQCvIpL5nn_wIdeCkQFkonEyql1puTgM6.ValePfV8Ve7BNsTW?startTime=1702345299000>
+Our project centers on developing a user-friendly database system that empowers individuals to take control of their personal finances, offering tools for income tracking, expense management and budget planning.
 
 # Problem description
 
@@ -74,7 +64,9 @@ Use Cases
 
 #### Bank (External Data Retrieval)
 Needs
-: * Access transaction data for account holders who have given permission.
+: 
+* Access transaction data for account holders who have given permission.
+
 Use Cases
 :
 * Connect to the database through secure APIs or integration methods.
@@ -83,12 +75,14 @@ Use Cases
 
 #### Financial Advisor (Upon Request)
 Needs
-: * Access to multiple client accounts.
+: 
+* Access to multiple client accounts.
 * Monitor and provide financial advice to clients.
 * Generate financial reports for clients.
 
 Use Cases
-: * Log in to a dashboard with access to all client accounts.
+: 
+* Log in to a dashboard with access to all client accounts.
 * Review and analyze client financial data.
 * Provide financial recommendations and set up budgets for clients.
 * Generate reports to discuss with clients during financial consultations.
@@ -98,8 +92,7 @@ User authentication
 : Implementing user identity verification through strong user authentication methods, such as username and password combinations, two-factor authentication (2FA), or biometric authentication, to ensure that only authorized users can access the system.
 
 Data Encryption
-: 
-Utilize secure communication protocols (such as HTTPS) to encrypt data transmitted between the user's device and the database server to prevent interception.
+: Utilize secure communication protocols (such as HTTPS) to encrypt data transmitted between the user's device and the database server to prevent interception.
 Encrypt sensitive data stored in the database to protect it from unauthorized access in case of a breach or physical server compromise
 
 Access Controls
@@ -477,7 +470,7 @@ The following outlines the RESTful API for accessing and manipulating data in th
 
 * The API allows clients to perform Create, Read, Update, and Delete (CRUD) operations on various financial entities including Users, Budgets, Actuals, and Transactions.
 
-## Base URL
+### Base URL
 
 The base URL for the API is:
 - <http://api.yourfinancedb.com/>
@@ -485,31 +478,31 @@ The base URL for the API is:
 
 This URL is the root address for all API requests.
 
-## Authentication
+### Authentication
 
 This API requires authentication for access. Use the following method for authentication:
 
 - **Method**: Basic Authentication
 - **Credentials**: username and password
 
-## Endpoints
+### Endpoints
 
-### Users
+#### Users
 
-#### Get All Users
+##### Get All Users
 - **URL**: `/users`
 - **Method**: `GET`
 - **Description**: Retrieve a list of all users.
 - **Response**: A JSON array of user objects.
 
-#### Create a New User
+##### Create a New User
 - **URL**: `/users`
 - **Method**: `POST`
 - **Description**: Create a new user.
 - **Data Parameters**: `{ "userID": "string", "name": "string" }`
 - **Response**: The created user object.
 
-#### Update a User
+##### Update a User
 - **URL**: `/users/<userID>`
 - **Method**: `PUT`
 - **Description**: Update an existing user.
@@ -517,29 +510,29 @@ This API requires authentication for access. Use the following method for authen
 - **Data Parameters**: `{ "name": "string" }`
 - **Response**: The updated user object.
 
-#### Delete a User
+##### Delete a User
 - **URL**: `/users/<userID>`
 - **Method**: `DELETE`
 - **Description**: Delete a user.
 - **URL Parameters**: `userID` is the ID of the user to delete.
 - **Response**: A confirmation message.
 
-### Budgets
+#### Budgets
 
-#### Get All Budgets
+##### Get All Budgets
 - **URL**: `/budgets`
 - **Method**: `GET`
 - **Description**: Retrieve a list of all budgets.
 - **Response**: A JSON array of budget objects.
 
-#### Create a New Budget
+##### Create a New Budget
 - **URL**: `/budgets`
 - **Method**: `POST`
 - **Description**: Create a new budget.
 - **Data Parameters**: `{ "budgetID": "string", ... }`
 - **Response**: The created budget object.
 
-#### Update a Budget
+##### Update a Budget
 - **URL**: `/budgets/<budgetID>`
 - **Method**: `PUT`
 - **Description**: Update an existing budget.
@@ -547,29 +540,29 @@ This API requires authentication for access. Use the following method for authen
 - **Data Parameters**: `{ ... }`
 - **Response**: The updated budget object.
 
-#### Delete a Budget
+##### Delete a Budget
 - **URL**: `/budgets/<budgetID>`
 - **Method**: `DELETE`
 - **Description**: Delete a budget.
 - **URL Parameters**: `budgetID` is the ID of the budget to delete.
 - **Response**: A confirmation message.
 
-### Actuals
+#### Actuals
 
-#### Get All Actuals
+##### Get All Actuals
 - **URL**: `/actuals`
 - **Method**: `GET`
 - **Description**: Retrieve a list of all actuals.
 - **Response**: A JSON array of actual objects.
 
-#### Create a New Actual
+##### Create a New Actual
 - **URL**: `/actuals`
 - **Method**: `POST`
 - **Description**: Create a new actual.
 - **Data Parameters**: `{ "actualID": "string", ... }`
 - **Response**: The created actual object.
 
-#### Update an Actual
+##### Update an Actual
 - **URL**: `/actuals/<actualID>`
 - **Method**: `PUT`
 - **Description**: Update an existing actual.
@@ -577,29 +570,29 @@ This API requires authentication for access. Use the following method for authen
 - **Data Parameters**: `{ ... }`
 - **Response**: The updated actual object.
 
-#### Delete an Actual
+##### Delete an Actual
 - **URL**: `/actuals/<actualID>`
 - **Method**: `DELETE`
 - **Description**: Delete an actual.
 - **URL Parameters**: `actualID` is the ID of the actual to delete.
 - **Response**: A confirmation message.
 
-### Transactions
+#### Transactions
 
-#### Get All Transactions
+##### Get All Transactions
 - **URL**: `/transactions`
 - **Method**: `GET`
 - **Description**: Retrieve a list of all transactions.
 - **Response**: A JSON array of transaction objects.
 
-#### Create a New Transaction
+##### Create a New Transaction
 - **URL**: `/transactions`
 - **Method**: `POST`
 - **Description**: Create a new transaction.
 - **Data Parameters**: `{ "transID": "string", ... }`
 - **Response**: The created transaction object.
 
-#### Update a Transaction
+##### Update a Transaction
 - **URL**: `/transactions/<transID>`
 - **Method**: `PUT`
 - **Description**: Update an existing transaction.
@@ -607,14 +600,14 @@ This API requires authentication for access. Use the following method for authen
 - **Data Parameters**: `{ ... }`
 - **Response**: The updated transaction object.
 
-#### Delete a Transaction
+##### Delete a Transaction
 - **URL**: `/transactions/<transID>`
 - **Method**: `DELETE`
 - **Description**: Delete a transaction.
 - **URL Parameters**: `transID` is the ID of the transaction to delete.
 - **Response**: A confirmation message.
 
-## Status Codes
+### Status Codes
 
 The API returns the following status codes:
 
@@ -765,19 +758,19 @@ def delete_transaction(transID):
     return jsonify({'message': 'Transaction deleted successfully'})
 ```
 
-## Demonstration of Finance Database API
+### Demonstration of Finance Database API
 
 This document demonstrates how to interact with the Finance Database API. We will use `curl` commands for simplicity, but these operations can also be performed using tools like Postman.
 
-## Prerequisites
+#### Prerequisites
 
 Ensure that the API server is running and accessible. The base URL for the API in these examples will be `http://api.yourfinancedb.com/`.
 
-## Create a New User
+### Create a New User
 
 To create a new user, we send a POST request to the `/users` endpoint with the user's details.
 
-### Request
+#### Request
 
 ```bash
 curl -X POST http://api.yourfinancedb.com/users \
@@ -785,26 +778,26 @@ curl -X POST http://api.yourfinancedb.com/users \
   -d '{"userID": "U123", "name": "John Doe"}'
 ```
 
-### Expected Response
+#### Expected Response
 ```json
 {
   "userID": "U123",
   "name": "John Doe"
 }
 ```
-### Postman Response
+#### Postman Response
 
 !["Hi John!"](hijohn!.png)
 
-## Retrieve All Users
+#### Retrieve All Users
 Next, we retrieve a list of all users with a GET request.
 
-### Request
+#### Request
 ```bash
 curl -X GET http://api.yourfinancedb.com/users
 ```
 
-### Expected Response
+#### Expected Response
 ```json
 [
   {
@@ -814,66 +807,66 @@ curl -X GET http://api.yourfinancedb.com/users
   // ... other users
 ]
 ```
-### Postman Response
+#### Postman Response
 
 !["Theres John"](heresjohnny.png)
 
-## Update a User
+### Update a User
 To update a user's details, we use a PUT request.
 
-### Request
+#### Request
 ```bash
 curl -X PUT http://api.yourfinancedb.com/users/U123 \
 -H "Content-Type: application/json" \
 -d '{"name": "Jane Doe"}'
 ```
-### Expected Response
+#### Expected Response
 ```json
 {
   "userID": "U123",
   "name": "Jane Doe"
 }
 ```
-### Postman Response
+#### Postman Response
 
 !["Hi Jane!"](hijane!.png)
 
-## Delete a User
+### Delete a User
 Finally, to delete a user, we send a DELETE request.
 
-### Request
+#### Request
 ```bash
 curl -X DELETE http://api.yourfinancedb.com/users/U123
 ```
-### Expected Response
+#### Expected Response
 ```json
 {
   "message": "User deleted successfully"
 }
 ```
 
-### Postman Response
+#### Postman Response
 
 !["Bye Jane"](byejane.png)
 
 
-## Try to delete a user that does not exist
+### Try to delete a user that does not exist
 
-### Request
+#### Request
 ```bash
 {
     curl -X DELETE http://api.yourfinancedb.com/users/U123
 }
 ```
 
-### Expected Response
+#### Expected Response
 ```json
 {
   "error": "User not found"
 }
 ```
 
-### Postman Response
+#### Postman Response
 
 !["Nobody home"](nothere.png)
 
@@ -891,35 +884,29 @@ Here is the link to the part of the GitHub which contains the API source code:
 
 For future developments, there are a couple of things that we would add for users who utilize the database. The most important one would be a front end UI to allow people to see finances in a better way. The following are a couple of other things that could be done in the future:
 
-### 1. User Interface Development
+1. User Interface Development
 Develop a user-friendly web application interface for intuitive interaction with the database.
 
-### 2. Enhanced Data Visualization
+2. Enhanced Data Visualization
 Implement advanced data visualization tools, such as interactive charts and graphs, to understand the user's financial situation better.
 
-### 3. Machine Learning for Financial Insights
+3. Machine Learning for Financial Insights
 Incorporate some sort of machine learning algorith to offer personalized financial advice and predictive analytics.
 
-### 4. Integration with Financial Institutions
+4. Integration with Financial Institutions
 Automate data entry by integrating with banks for real-time transaction data feeds, seems a bit complicated, but would be super useful if we were to create an application for budgeting.
 
-### 5. Security Enhancements
+5. Security Enhancements
 Enhance security features with robust encryption, having secure API endpoints, and implementing unique authentication mechanisms.
 
-### 6. User Customization and Settings
+6. User Customization and Settings
 Allow users to set personal financial goals, customize budget categories, and receive alerts on their personal phones.
 
-### 7. Utilizing a Mobile App for Responsiveness and Cross-Platform Compatibility
+7. Utilizing a Mobile App for Responsiveness and Cross-Platform Compatibility
 Ensure the database behaves well with an application that is responsive and compatible across various devices and platforms.
 
-### 8. Scalability Improvements
+8. Scalability Improvements
 Optimize for scalability with cloud hosting solutions and efficient data processing algorithms.
 
-### 10. Compliance and Regulation
+10. Compliance and Regulation
 Ensure compliance with financial regulations and data protection laws so all parties are safe when utilizing the services.
-
-### 11. Extended API Functionality
-Develop additional API endpoints for more features and third-party integrations to have a live service.
-
-### 12. User Feedback and Continuous Improvement
-Implement a system for collecting user feedback for ongoing application improvement to allow for error handling that we may not be able to catch ourselves.
