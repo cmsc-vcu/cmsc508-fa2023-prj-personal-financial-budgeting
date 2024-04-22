@@ -1,5 +1,5 @@
 ---
-title: Deliverable 7 - Database Implementation
+title: Budgeting Database Implementation
 author: Bryan Montecino & Corbin Nash
 format:
     html:
