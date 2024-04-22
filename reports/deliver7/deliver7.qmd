@@ -15,7 +15,7 @@ format:
 
 * <https://github.com/cmsc-vcu/cmsc508-fa2023-prj-personal-financial-budgeting>
 
-Access to the repository to see code and commits.
+Access the repository above to see code.
 
 # Project overview and key deliverables
 
