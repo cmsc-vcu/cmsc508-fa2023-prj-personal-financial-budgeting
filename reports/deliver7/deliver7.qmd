@@ -13,7 +13,7 @@ format:
 
 # GitHub Repository
 
-* <https://github.com/cmsc-vcu/cmsc508-fa2023-prj-personal-financial-budgeting>
+* [Link to repository](<https://github.com/cmsc-vcu/cmsc508-fa2023-prj-personal-financial-budgeting>)
 
 Access the repository above to see code.
 
